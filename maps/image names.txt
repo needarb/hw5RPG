@@ -10,6 +10,8 @@ player , actor.png
 
 # Items
 g , gold.png
+b, blackKnight.png
+p , potion.png
 
 # Terrain (grass, trees, castles, etc.)
 . , grass.png
@@ -18,6 +20,11 @@ l , lava.png
 T , tree.png
 ~ , water.png
 o , white.png , A white square. Use if nothing is at that spot.
+/ , BackgroundTiles/upLeftShack.png
+\ , BackgroundTiles/upRightShack.png
+R , BackgroundTiles/downRightShack.png
+L , BackgroundTiles/downLeftShack.png
+
 
 # Misc
 background yellow , background yellow.png

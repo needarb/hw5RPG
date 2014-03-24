@@ -5,3 +5,7 @@
 ^ , mountain
 T , tree
 ~ , water
+R , lower right shack
+L , lower left shack
+/ , upper left shack
+\ ,  upper right shack
