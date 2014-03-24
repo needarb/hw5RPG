@@ -1,5 +1,7 @@
 package edu.macalester.comp124.hw5;
 
+import acm.program.ConsoleProgram;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -16,8 +18,10 @@ import java.util.Scanner;
  */
 public class DataLoader
 {
-	static public List<String> loadLinesFromFile(String fullyQualifiedName)
+    public static List<String> loadLinesFromFile(String fullyQualifiedName)
 	{
+
+
 		File f = new File(fullyQualifiedName);
 		List<String> lines = new ArrayList();
         try
