@@ -20,7 +20,7 @@ public abstract class Agent
 	public Agent(String type)
 	{
 		this.type = type;
-	}
+    }
 
 	/**
 	 * The think() method is where agents decide what they're going to do.
