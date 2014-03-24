@@ -1,5 +1,7 @@
 package edu.macalester.comp124.hw5;
 
+import acm.io.IOConsole;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,9 +18,10 @@ public class Game
 	//--- We need to know this so we know who to draw and so that we can ask
 	//---	each turn what they want to do
 	public List<Agent> agents = new LinkedList<>();
-
-	public Game()
+    private IOConsole console;
+	public Game(IOConsole console)
 	{
+        this.console = console;
 		//--- Load a map
 		map = new Map("main");
 
@@ -82,4 +85,9 @@ public class Game
 //		form.enemies = ???;
 //		form.run();
 	}
+
+    public IOConsole getConsole()
+    {
+        return console;
+    }
 }
