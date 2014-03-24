@@ -22,6 +22,8 @@ public class Map
 		loadMap(mapName);
 	}
 
+
+
 	private void loadPassabilityInformation()
 	{
 		String fileName  = "impassible terrain.txt";
