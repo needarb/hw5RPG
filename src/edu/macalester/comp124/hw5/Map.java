@@ -92,5 +92,14 @@ public class Map
 		}
 		return output;
 	}
-	//</editor-fold>
+
+    public boolean isPassable(int x, int y)
+    {
+        if(x >= terrain.length || x < 0 || y >= terrain[x].length || y < 0)
+            return false;
+        if(!passibility.containsKey(terrain[x][y]))
+            return true;
+        return passibility.get(terrain[x][y]);
+    }
+    //</editor-fold>
 }

@@ -34,7 +34,8 @@ public class Game
 	public void movePlayer(int x, int y)
 	{
 		//--- Don't do anything if the move is illega
-
+        if(!map.isPassable(x,y))
+           return;
 		//--- Move the player to the new spot
 		player.x = x;
 		player.y = y;
