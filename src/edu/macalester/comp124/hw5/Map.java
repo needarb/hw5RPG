@@ -104,12 +104,12 @@ public class Map
         return passibility.get(terrain[x][y]);
     }
 
-    public EquipableItem getItem(int x, int y)
+    public Item getItem(int x, int y)
     {
         String itemString = items[x][y];
         switch (itemString)
         {
-            case("p"):
+            case("p"):          //New Potion
                 return null;
             default:
                 return null;

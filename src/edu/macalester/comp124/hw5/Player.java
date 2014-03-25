@@ -4,8 +4,7 @@ package edu.macalester.comp124.hw5;
  *
  * @author baylor
  */
-public class Player
-	extends Agent
+public class Player extends Agent
 {
 	public Player()
 	{
