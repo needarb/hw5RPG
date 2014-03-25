@@ -36,13 +36,15 @@ public class Game
 
 	public void movePlayer(int x, int y)
 	{
-		//--- Don't do anything if the move is illega
+		//--- Don't do anything if the move is illegal
         if(!map.isPassable(x,y))
            return;
 		//--- Move the player to the new spot
 		player.x = x;
 		player.y = y;
-
+        //---Resolve any items the player walked on
+        if(map.getItem(x,y) != null)
+             //player.giveItem(map.getItem(x,y));
 		//--- Assuming this is the last thing that happens in the round,
 		//---	start a new round. This lets the other agents make their moves.
 		nextTurn();

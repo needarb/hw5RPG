@@ -23,7 +23,7 @@ public class Application
 
 
         //--- Create Console Window
-        JFrame consoleWindow = new JFrame("TEST");
+        JFrame consoleWindow = new JFrame("Console");
         consoleWindow.add(console);
         consoleWindow.setSize(500,500);
 

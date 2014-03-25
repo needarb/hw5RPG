@@ -23,6 +23,7 @@ public class DataLoader
 
 
 		File f = new File(fullyQualifiedName);
+        System.out.println(f.getAbsolutePath());
 		List<String> lines = new ArrayList();
         try
 		{

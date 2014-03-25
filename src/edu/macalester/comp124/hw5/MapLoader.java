@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class MapLoader
 {
-	static public String[][] getMap(String fqn)
+    public static String[][] getMap(String fqn)
 	{
 		int width, height;
 		String[][] map;

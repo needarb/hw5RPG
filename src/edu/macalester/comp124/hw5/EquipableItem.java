@@ -4,7 +4,7 @@ package edu.macalester.comp124.hw5;
  *
  * @author baylor
  */
-public class EquipableItem
+public class EquipableItem extends Item
 {
 	public String id, description;
 	public int strengthModifier, speedModifier, constitutionModifier;
