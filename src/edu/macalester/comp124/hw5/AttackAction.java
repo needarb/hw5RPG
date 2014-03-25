@@ -16,6 +16,10 @@ public class AttackAction
 
     public void performAction(Agent target)
     {
-        target.changeHealth(-strength);
+        if(uses<0)//makes sure user can use attack
+        {
+            target.changeHealth(-strength);
+            uses--;//used once, so useable amount reduces
+        }
     }
 }

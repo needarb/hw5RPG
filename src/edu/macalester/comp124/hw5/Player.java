@@ -6,9 +6,9 @@ package edu.macalester.comp124.hw5;
  */
 public class Player extends Agent
 {
-	public Player()
+	public Player(int speed, int health)
 	{
-		super("player");
+		super("player", speed, health);
 	}
 
 	@Override
