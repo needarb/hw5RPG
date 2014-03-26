@@ -22,4 +22,11 @@ public abstract class Action
     {
         return name;
     }
+
+    public boolean useableAction()
+    {
+        if (uses<=0)
+            return false;
+        return true;
+    }
 }
