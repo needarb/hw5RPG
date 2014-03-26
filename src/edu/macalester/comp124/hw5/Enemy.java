@@ -9,6 +9,6 @@ public abstract class Enemy extends Agent {
 
     public Enemy()
     {
-        super("enemy");
+        super("enemy",1,1);
     }
 }

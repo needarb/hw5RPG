@@ -14,16 +14,19 @@ b, blackKnight.png
 p , potion.png
 
 # Terrain (grass, trees, castles, etc.)
-. , grass.png
-l , lava.png
-^ , mountain.png
-T , tree.png
-~ , water.png
+. , BackgroundTiles/grass.png
+l , BackgroundTiles/lava.png
+^ , BackgroundTiles/mountain.png
+T , BackgroundTiles/tree.png
+~ , BackgroundTiles/water.png
 o , white.png , A white square. Use if nothing is at that spot.
 / , BackgroundTiles/upLeftShack.png
 \ , BackgroundTiles/upRightShack.png
 R , BackgroundTiles/downRightShack.png
 L , BackgroundTiles/downLeftShack.png
+@ , BackgroundTiles/teleporter.png
+C , BackgroundTiles/caveFront.png
+B , BackgroundTiles/caveBack.png
 
 
 # Misc

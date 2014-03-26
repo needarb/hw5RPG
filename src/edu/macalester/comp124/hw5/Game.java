@@ -1,6 +1,7 @@
 package edu.macalester.comp124.hw5;
 
 import acm.io.IOConsole;
+import com.sun.org.apache.xpath.internal.SourceTree;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -23,12 +24,12 @@ public class Game
 	{
         this.console = console;
 		//--- Load a map
-		map = new Map("main");
+		map = new Map("home");
 
 		//--- Create a player, stick him in the top left corner
-		player = new Player();
-		player.x = 2;
-		player.y = 2;
+		player = new Player(7,9001);
+		player.x = 5;
+		player.y = 18;
 
 		//--- Add the player to the agents list. This list controls
 		agents.add(player);
@@ -44,29 +45,52 @@ public class Game
 		player.y = y;
         //---Resolve any items the player walked on
         if(map.getItem(x,y) != null)
+            System.out.println("Player walked on an item");
              //player.giveItem(map.getItem(x,y));
-		//--- Assuming this is the last thing that happens in the round,
+        //---If possible teleport
+        for(Teleporter t: map.getTeleporters())
+        {
+            System.out.println("Players x: " + x + " Players y: " + y);
+            System.out.println("Teleporter x: " + t.getFromLocation().getX() + " Teleporter y: " + t.getFromLocation().getY());
+            if(t.getFromLocation().getX() == x && t.getFromLocation().getY() == y)
+            {
+                teleportPlayer(t);
+                return;
+            }
+        }
+        //--- Assuming this is the last thing that happens in the round,
 		//---	start a new round. This lets the other agents make their moves.
 		nextTurn();
 	}
-	public void movePlayer(char direction)
-	{
-		switch(direction)
-		{
-			case 'n':
-				movePlayer(player.x, player.y-1);
-				break;
-			case 's':
-				movePlayer(player.x, player.y+1);
-				break;
-			case 'e':
-				movePlayer(player.x+1, player.y);
-				break;
-			case 'w':
-				movePlayer(player.x-1, player.y);
-				break;
-		}
-	}
+
+    public void movePlayer(char direction)
+    {
+        switch(direction)
+        {
+            case 'n':
+                movePlayer(player.x, player.y-1);
+                break;
+            case 's':
+                movePlayer(player.x, player.y+1);
+                break;
+            case 'e':
+                movePlayer(player.x+1, player.y);
+                break;
+            case 'w':
+                movePlayer(player.x-1, player.y);
+                break;
+        }
+    }
+
+    public void teleportPlayer(Teleporter t)
+    {
+        System.out.println("Teleporting playing to new map: " + t.getNewMap());
+        Map m = new Map(t.getNewMap());
+        player.x = t.getToLocation().getX();
+        player.y = t.getToLocation().getY();
+        this.map = m;
+    }
+
 
 	/**
 	 * Run a turn. Did the player run into an enemy? An item?

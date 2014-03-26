@@ -1,5 +1,6 @@
 package edu.macalester.comp124.hw5;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -15,16 +16,31 @@ public class Map
 	//--- Technically, we're only tracking what we CAN'T walk on right now
 	private HashMap<String,Boolean> passibility = new HashMap<>();
 
+    //--- Teleporters on this map
+    private Teleporter[] teleporters;
 	//<editor-fold defaultstate="collapsed" desc="constructors and accessors">
 	public Map(String mapName)
 	{
 		loadPassabilityInformation();
 		loadMap(mapName);
+        loadTeleporters(mapName);
 	}
 
+    private void loadTeleporters(String mapName)
+    {
+        String fileName = mapName + ".terrain.map";
+        teleporters = MapLoader.getTeleporters(mapsDirectoryName + fileName);
+        for(Teleporter t: teleporters)
+            System.out.println("Teleporter to " + t.getNewMap() + " at this location " + t.getFromLocation().getX() + "," + t.getFromLocation().getY());
+    }
+
+    public Teleporter[] getTeleporters()
+    {
+        return teleporters;
+    }
 
 
-	private void loadPassabilityInformation()
+    private void loadPassabilityInformation()
 	{
 		String fileName  = "impassible terrain.txt";
 
@@ -107,6 +123,8 @@ public class Map
     public Item getItem(int x, int y)
     {
         String itemString = items[x][y];
+        if(itemString == null)
+            return null;
         switch (itemString)
         {
             case("p"):          //New Potion

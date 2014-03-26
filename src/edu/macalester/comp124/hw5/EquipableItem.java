@@ -12,6 +12,7 @@ public class EquipableItem extends Item
 
 	public EquipableItem(String id, String description)
 	{
+        super("BANANA");
 		this.id = id;
 		this.description = description;
 	}
