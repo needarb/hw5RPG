@@ -18,6 +18,7 @@ public class Application
 		//--- Formally, it's called the Model
 		//--- The thing that draws the picture is called the View
 		//--- The thing that lets players select actions is the Controller
+        CombatGUI combat = new CombatGUI();
         IOConsole console = new IOConsole();
 		Game theGame = new Game(console);
 

@@ -7,8 +7,8 @@ public abstract class Enemy extends Agent {
 
     ArrayList<Action> combatActions;
 
-    public Enemy()
+    public Enemy(String type, int speed, int health)
     {
-        super("enemy",1,1);
+        super(type, speed, health);
     }
 }

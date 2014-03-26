@@ -18,7 +18,7 @@ public abstract class Agent
     public ArrayList<UseableItem> useableInventory;//useables: potions
 
 
-	public Agent(String type, int speed, int health)
+	public  Agent(String type, int speed, int health)
 	{
 		this.type = type;
         combatSpeed = speed;

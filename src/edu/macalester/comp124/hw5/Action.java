@@ -17,4 +17,9 @@ public abstract class Action
     }
 
     //public abstract void performAction(Agent target);
+
+    public String getName()
+    {
+        return name;
+    }
 }
