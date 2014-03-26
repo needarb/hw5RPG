@@ -18,7 +18,7 @@ public class AttackAction
     {
         if(uses<0)//makes sure user can use attack
         {
-            target.changeHealth(-strength);
+            int damage = target.takeDamage(strength);
             uses--;//used once, so useable amount reduces
         }
     }

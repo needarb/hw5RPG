@@ -21,20 +21,26 @@ public class Player extends Agent
 		//--- We don't think, the player thinks for us
 	}
 
-    public String attackEnemy(Enemy target)
+    public void performCombatAction(Action action, Agent opponent)
     {
-        int attack = equippedWeapon.combatPower + this.attack;
-        int damage = target.takeDamage(attack);
-        return (this.name + "attacked " + target.name + " with " + equippedWeapon.name + "! It caused " + damage + " damage");
+       if (action instanceof AttackAction)
+           attackEnemy((AttackAction) action, (Enemy) opponent);
+       if (action instanceof CombatItemAction)
+           useItem((CombatItemAction) action);
+    }
+    public String attackEnemy(AttackAction action, Enemy target)
+    {
+        action.performAction(target);
+        return (this.name + "attacked " + target.name + " with " + equippedWeapon.name + "!");
     }
 
-    public String useItem(UseableItem item)
+    public String useItem(CombatItemAction action)
     {
-        item.useItem(this);
-        return (this.name + " used " + item.getName());
+        action.performAction(this);
+        return (this.name + " used " + action.item.getName());
     }
 
-    public String switchWeapons(Weapon weapon)
+    public String switchWeapons(Weapon weapon) //TODO make a switchEquipableAction class
     {
         equippedWeapon = weapon;
         return (this.name + " equipped " + weapon.name + ".");

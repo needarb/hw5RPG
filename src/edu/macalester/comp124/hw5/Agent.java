@@ -64,4 +64,12 @@ public abstract class Agent
         changeHealth(-damage);
         return damage;
     }
+
+    public boolean isAlive()
+    {
+        if(this.healthPoints>0)
+            return true;
+        else
+            return false;
+    }
 }
