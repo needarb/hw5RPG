@@ -12,12 +12,12 @@ public abstract class Enemy extends Agent {
         super(type, speed, health);
     }
 
-    public void performCombatAction(Agent opponent)
+    public String performCombatAction(Agent opponent)
     {
         Random generator = new Random();
         Action action;
 
-        do
+        do//makes sure the action is useable
         {
         int length = combatActions.size();
         int index = generator.nextInt(length);
@@ -28,9 +28,19 @@ public abstract class Enemy extends Agent {
 
         }while(!action.useableAction());
 
-        if (action instanceof CombatItemAction) //uses a potion or similar item on the enemy itself
+        if (action instanceof CombatItemAction) //uses a potion or similar item on the enemy itself. Returns feedback
+        {
             ((CombatItemAction) action).performAction(this);
-        if (action instanceof AttackAction) //uses an attack on the Enemy's opponent
+            return (this.name + " used " + action.getName());
+        }
+
+        if (action instanceof AttackAction)//uses an attack on the Enemy's opponent. returns feedback
+        {
             ((AttackAction) action).performAction(opponent);
+            return (this.name + " attacked you with " + action.getName() + "!");
+        }
+
+        return "uh-oh. There's and error in our code";
     }
+
 }

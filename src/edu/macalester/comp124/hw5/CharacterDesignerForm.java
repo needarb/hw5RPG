@@ -409,7 +409,7 @@ public class CharacterDesignerForm extends javax.swing.JFrame
 		}
 		else
 		{
-			outputTextArea.append("Put on " + itemOnHead.description);
+			outputTextArea.append("Put on " + itemOnHead.name);
 		}
 		outputTextArea.append(System.lineSeparator());
 		repaint();
@@ -424,7 +424,7 @@ public class CharacterDesignerForm extends javax.swing.JFrame
 		}
 		else
 		{
-			outputTextArea.append("Equipped " + itemOnHands.description);
+			outputTextArea.append("Equipped " + itemOnHands.name);
 		}
 		outputTextArea.append(System.lineSeparator());
 		repaint();
@@ -439,7 +439,7 @@ public class CharacterDesignerForm extends javax.swing.JFrame
 		}
 		else
 		{
-			outputTextArea.append("Put on " + itemOnFeet.description);
+			outputTextArea.append("Put on " + itemOnFeet.name);
 		}
 		outputTextArea.append(System.lineSeparator());
 		repaint();

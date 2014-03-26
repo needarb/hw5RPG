@@ -13,6 +13,9 @@ public abstract class Agent
 	public String type;	// tells us which picture to draw for this agent
     public int combatSpeed; //how fast the agent is in combat
     public int healthPoints;
+    public int defense;
+    public String name;
+
 	public int x, y;
     public ArrayList<EquipableItem> equipableInventory;//weapons: swords and such
     public ArrayList<UseableItem> useableInventory;//useables: potions
@@ -48,5 +51,17 @@ public abstract class Agent
             EquipableItem addItem = (EquipableItem) item;
             equipableInventory.add(addItem);
         }
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public int takeDamage(int attack)
+    {
+        int damage = attack-this.defense;
+        changeHealth(-damage);
+        return damage;
     }
 }

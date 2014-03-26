@@ -6,20 +6,20 @@ package edu.macalester.comp124.hw5;
  */
 public class EquipableItem extends Item
 {
-	public String id, description;
+	public String id, name;
 	public int strengthModifier, speedModifier, constitutionModifier;
 	public int meleeAttackModifire, rangedAttackModifier, defenseModifier;
 
-	public EquipableItem(String id, String description)
+	public EquipableItem(String id, String name)
 	{
-        super("BANANA");
+        super(name);
 		this.id = id;
-		this.description = description;
+		this.name = name;
 	}
 
 	@Override
 	public String toString()
 	{
-		return description;
+		return name;
 	}
 }
