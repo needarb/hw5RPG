@@ -35,13 +35,16 @@ public class MapLoader
 		return map;
 	}
 
-    public static final String TELEPORTER_CODES_SPLIT = "_";       //--- What splits each code section (see below) ie 1,2>>lavaarea>>5,7||4,5>>waterarea>>7,8
+    public static final String TELEPORTER_CODES_SPLIT = "_";       //--- What splits each code section (see below) ie 1,2>>lavaarea>>5,7_4,5>>waterarea>>7,8
     public static final String TELEPORTER_CODE_PARTS_SPLIT = ">>"; //---from location(ie on old map)>>new map name>>to location(ie on old map) [x],[y]>>[mapName]>>[x],[y]
     public static Teleporter[] getTeleporters(String fqn)
     {
+        //Map File
         List<String> lines = DataLoader.loadLinesFromFile(fqn);
+        //Last line (which has teleporter code
         String teleportersLine = lines.get(lines.size()-1);
-        String[] teleportersStrings =  (teleportersLine.substring(1).replace(" ","").split(TELEPORTER_CODES_SPLIT));
+        //Split up the individual teleporters. First remove all spaces and dashes
+        String[] teleportersStrings =  (teleportersLine.substring(1).replaceAll("[(){} \\[\\]\\-]","").split(TELEPORTER_CODES_SPLIT));
         System.out.println("Number of teleporters: " + teleportersStrings.length);
         Teleporter[] teleporters = new Teleporter[teleportersStrings.length];
         for (int i = 0; i < teleportersStrings.length; i++)

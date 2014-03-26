@@ -9,9 +9,11 @@
 player , actor.png
 
 # Items
-g , gold.png
-b, blackKnight.png
-p , potion.png
+g , items/gold.png
+b , items/blackKnight.png
+p , items/potion.png
+W , items/waterStone.png
+F , items/fireStone.png
 
 # Terrain (grass, trees, castles, etc.)
 . , BackgroundTiles/grass.png
