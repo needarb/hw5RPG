@@ -26,13 +26,15 @@ public abstract class Agent
 		this.type = type;
         combatSpeed = speed;
         healthPoints = health;
+        equipableInventory = new ArrayList<>();
+        useableInventory = new ArrayList<>();
     }
 
 	/**
 	 * The think() method is where agents decide what they're going to do.
 	 * For this game, this normally means they decide where to move.
 	 */
-	 public abstract void think();
+	 //public abstract void think();
 
     public void changeHealth(int change)//positive if it increases, negative if it decreases
     {

@@ -9,17 +9,15 @@ public class Player extends Agent
 
     public Weapon equippedWeapon;
     public int attack;
+    public AttackAction currentAttack;
 
 	public Player(int speed, int health)
 	{
 		super("player", speed, health);
 	}
 
-	@Override
-	public void think()
-	{
-		//--- We don't think, the player thinks for us
-	}
+
+	//public void think(){}
 
     public void performCombatAction(Action action, Agent opponent)
     {
@@ -40,9 +38,10 @@ public class Player extends Agent
         return (this.name + " used " + action.item.getName());
     }
 
-    public String switchWeapons(Weapon weapon) //TODO make a switchEquipableAction class
+    public String setEquippedWeapon(Weapon weapon) //TODO make a switchEquipableAction class
     {
         equippedWeapon = weapon;
+        currentAttack = new AttackAction(weapon.combatPower, 50, 100, weapon.getName());
         return (this.name + " equipped " + weapon.name + ".");
     }
 }

@@ -8,11 +8,13 @@ public abstract class UseableItem
 {
 
     int uses;
+    public CombatItemAction combatUse;
 
     public UseableItem(String name, int uses)
     {
         super(name);
         this.uses = uses;
+        combatUse = new CombatItemAction(uses, 100, name, this);
     }
 
     public abstract void useItem(Agent target);

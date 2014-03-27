@@ -18,7 +18,13 @@ public class Application
 		//--- Formally, it's called the Model
 		//--- The thing that draws the picture is called the View
 		//--- The thing that lets players select actions is the Controller
-        CombatGUI combat = new CombatGUI();
+        Player p = new Player(50, 50);
+        Potion a = new Potion("Potion",1,20);
+        Potion b = new Potion("Health", 1, 20);
+        p.receiveItem(a);
+        p.receiveItem(b);
+        Enemy e = new BlackKnight("knight", 60, 50);
+        CombatGUI combat = new CombatGUI(new Combat(p, e));
         IOConsole console = new IOConsole();
 		Game theGame = new Game(console);
 
