@@ -8,11 +8,13 @@ public class Combat
 
     Enemy opponent;
     Player player;
+    CombatGUI gui;
 
     public Combat(Player player, Enemy opponent)
     {
         this.opponent = opponent;
         this.player = player;
+        gui = new CombatGUI(this);
     }
 
     public void takeTurn(Action playerAction)
@@ -42,4 +44,23 @@ public class Combat
         player.performCombatAction(action, opponent);
     }
 
+    public String playerWinsBattle()
+    {
+        //give a message about winning and stat change
+        player.attack += opponent.playerAttackBoost;
+        player.defense += opponent.playerDefenseBoost;
+        //gui.dispose();
+        return (player.name + " defeated " + opponent.name + "!");
+    }
+
+    public String playerLosesBattle()
+    {
+        return "You died. Game Over";
+        //gui.dispose();
+    }
+
+    public String playerRunsAway()
+    {
+        return player.name + " ran away.";
+    }
 }
