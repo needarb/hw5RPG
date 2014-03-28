@@ -206,6 +206,9 @@ public class CharacterCreationGUI extends JFrame implements ActionListener
             System.out.println(STAT_NAMES[1] + ": " + stats[1] + " ");
             System.out.println(STAT_NAMES[2] + ": " + stats[2] + " ");
             System.out.println(STAT_NAMES[3] + ": " + stats[3] + " ");
+
+
+
             player.setHealth(stats[0]);
             player.setAttack(stats[1]);
             player.setDefense(stats[2]);

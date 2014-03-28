@@ -22,6 +22,7 @@ public class CombatGUI
     private JButton itemButton;
     private JButton switchWeaponButton;
     private JButton runButton;
+    private JButton done;
 
     private JLabel playerImage;
     private JLabel opponentImage;
@@ -73,7 +74,7 @@ public class CombatGUI
         opponentName = new JLabel(combat.opponent.name);
         opponentHealth = new JLabel ("Health: " + combat.opponent.healthPoints);
 
-       playerImage.setVisible(true);
+        playerImage.setVisible(true);
         opponentImage.setVisible(true);
         playerName.setVisible(true);
         playerHealth.setVisible(true);
@@ -171,6 +172,15 @@ public class CombatGUI
          */
     }
 
+    public void addEndButton()
+    {
+        done = new JButton("Done");
+        buttonPanel.setVisible(false);
+        buttonPanel.removeAll();
+        buttonPanel.add(done);
+        buttonPanel.setVisible(true);
+        done.addActionListener(this);
+    }
     public void addItemButtons()
     {
         buttonPanel.setVisible(false);
@@ -217,7 +227,6 @@ public class CombatGUI
         {
             AttackAction attack = combat.player.currentAttack;
             combat.takeTurn(attack); //the player decides to attack
-            //setFeedbackText(attack.);
             updateHealth();
         }
         if (e.getSource() == itemButton)
@@ -243,9 +252,11 @@ public class CombatGUI
             addSwitchWeaponButtons();
         if (e.getSource() == runButton)
         {
-            setFeedbackText(combat.playerRunsAway());
-            dispose();
+            combat.playerRunsAway();
         }
+
+        if (e.getSource() == done)
+            dispose();
 
 
     }

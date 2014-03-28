@@ -53,7 +53,7 @@ public class Player extends Agent
     public String attackEnemy(AttackAction action, Enemy target)
     {
         action.performAction(target);
-        return (this.name + "attacked " + target.name + " with " + equippedWeapon.name + "!");
+        return (this.name + " attacked " + target.name + " with " + equippedWeapon.name + "!");
     }
 
     public String useItem(CombatItemAction action)

@@ -25,13 +25,27 @@ public class Combat
         if(opponent.combatSpeed > player.combatSpeed)
         {
             performOppAction();
+
+            if(checkCombatOver())
+                return;
+
             performPlayAction(playerAction);
+
+            if(checkCombatOver())
+                return;
         }
 
         else
         {
             performPlayAction(playerAction);
+
+            if(checkCombatOver())
+                return;
+
             performOppAction();
+
+            if(checkCombatOver())
+                return;
         }
 
     }
@@ -48,23 +62,43 @@ public class Combat
        gui.setFeedbackText(feedback);
     }
 
-    public String playerWinsBattle()
+    public void playerWinsBattle()
     {
         //give a message about winning and stat change
         player.attack += opponent.playerAttackBoost;
         player.defense += opponent.playerDefenseBoost;
-        //gui.dispose();
-        return (player.name + " defeated " + opponent.name + "!");
+        gui.setFeedbackText(player.name + " defeated " + opponent.name + "!");
+        gui.setFeedbackText("Attack Boost: " + opponent.playerAttackBoost);
+        gui.setFeedbackText("Defense Boost: " + opponent.playerDefenseBoost);
+        gui.addEndButton();
     }
 
-    public String playerLosesBattle()
+    private boolean checkCombatOver()
     {
-        return "You died. Game Over";
-        //gui.dispose();
+        if(player.healthPoints <= 0)
+        {
+            playerLosesBattle();
+            return true;
+        }
+
+        else if (opponent.healthPoints <= 0)
+        {
+            playerWinsBattle();
+            return true;
+        }
+
+        return false;
     }
 
-    public String playerRunsAway()
+    public void playerLosesBattle()
     {
-        return player.name + " ran away.";
+        gui.setFeedbackText("You died. Game Over");
+        gui.addEndButton();
+    }
+
+    public void playerRunsAway()
+    {
+        gui.setFeedbackText(player.name + " ran away.");
+        gui.addEndButton();
     }
 }
