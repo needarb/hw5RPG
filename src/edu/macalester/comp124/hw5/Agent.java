@@ -15,6 +15,7 @@ public abstract class Agent
     public int healthPoints;
     public int defense;
     public String name;
+    public String imageFileName;
 
 	public int x, y;
     public ArrayList<EquipableItem> equipableInventory;//weapons: swords and such

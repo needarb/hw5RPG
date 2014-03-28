@@ -66,8 +66,9 @@ public class CombatGUI
         feedbackPanel.setSize(500, 50);
         statsPanel.setSize(500, 350);
 
-        playerImage = new JLabel();
-        opponentImage = new JLabel();
+        ImageIcon i = new ImageIcon("actor.png");
+        playerImage = new JLabel(i);
+        opponentImage = new JLabel(new ImageIcon(combat.opponent.imageFileName));
         playerName = new JLabel(combat.player.name);
         playerHealth = new JLabel("Health: " + combat.player.healthPoints);
         opponentName = new JLabel(combat.opponent.name);
@@ -79,6 +80,7 @@ public class CombatGUI
         playerHealth.setVisible(true);
         opponentName.setVisible(true);
         opponentHealth.setVisible(true);
+
 
         playerImage.setSize(250, 250);
         opponentImage.setSize(250,250);
@@ -111,6 +113,7 @@ public class CombatGUI
         this.add(buttonPanel);
         this.add(feedbackPanel);
 
+        System.out.println(playerImage.getLocation());
         addBeginButtons();
 
     }

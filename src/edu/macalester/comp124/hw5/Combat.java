@@ -1,5 +1,7 @@
 package edu.macalester.comp124.hw5;
 
+import javax.swing.*;
+
 /**
  * Created by Benjamin Mathers on 3/26/14.
  */
