@@ -17,6 +17,24 @@ public class Player extends Agent
         imageFileName = "hw5RPG\\images\\actor.png";
 	}
 
+    public void setHealth(int health)
+    {
+        this.healthPoints = health;
+    }
+    public void setAttack(int attack)
+    {
+        this.attack = attack;
+    }
+    public void setDefense(int defense)
+    {
+        this.defense = defense;
+    }
+    public void setSpeed(int speed)
+    {
+        this.combatSpeed = speed;
+    }
+
+
 
 	//public void think(){}
 

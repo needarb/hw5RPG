@@ -20,8 +20,8 @@ public class CharacterCreationGUI extends JFrame implements ActionListener
     public static void main(String[] args)
     {
      //   playSound("test.wav");
-       CharacterCreationGUI g = new CharacterCreationGUI();
-        g.askNextQuestion();
+      // CharacterCreationGUI g = new CharacterCreationGUI();
+     //   g.askNextQuestion();
     }
 
     public static final String[] STAT_NAMES = {"Health","Attack","Defense","Speed"};
@@ -59,10 +59,14 @@ public class CharacterCreationGUI extends JFrame implements ActionListener
     private int question;
     private int part;
 
+    private Player player;
+
     private int[] stats;
 
-    public CharacterCreationGUI()
+    public CharacterCreationGUI(Game game,Player player)
     {
+        this.player = player;
+
         stats = new int[4];
         for (int i = 0; i < stats.length; i++)
             stats[i] = 0;
@@ -99,6 +103,7 @@ public class CharacterCreationGUI extends JFrame implements ActionListener
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
+        askNextQuestion();
     }
 
 
@@ -201,6 +206,11 @@ public class CharacterCreationGUI extends JFrame implements ActionListener
             System.out.println(STAT_NAMES[1] + ": " + stats[1] + " ");
             System.out.println(STAT_NAMES[2] + ": " + stats[2] + " ");
             System.out.println(STAT_NAMES[3] + ": " + stats[3] + " ");
+            player.setHealth(stats[0]);
+            player.setAttack(stats[1]);
+            player.setDefense(stats[2]);
+            player.setSpeed(stats[3]);
+
             for(JLabel l:statsLabels)
                 l.setFont(new Font("Courier New",Font.PLAIN,26));
             part = -1;
@@ -233,13 +243,34 @@ public class CharacterCreationGUI extends JFrame implements ActionListener
         }
     }
 
-    public static void playSound(String fileName)
+    public  void playSound(String fileName)
     {
-        System.out.println(fileName);
+       /* System.out.println(fileName);
         URL fileLoc = CharacterCreationGUI.class.getResource(fileName);
         System.out.println(fileLoc);
         System.out.println(fileLoc.getFile());
         AudioClip clip = Applet.newAudioClip(fileLoc);
-        clip.play();
+        clip.play(); */
+        SoundPlayer sp = new SoundPlayer(fileName);
+        new Thread(sp).start();
+    }
+
+
+    class SoundPlayer implements Runnable
+    {
+        private String fileName;
+        public SoundPlayer(String fileName)
+        {
+            this.fileName = fileName;
+        }
+        public void run()
+        {
+           // System.out.println(fileName);
+            URL fileLoc = CharacterCreationGUI.class.getResource(fileName);
+          //  System.out.println(fileLoc);
+          //  System.out.println(fileLoc.getFile());
+            AudioClip clip = Applet.newAudioClip(fileLoc);
+            clip.play();
+        }
     }
 }

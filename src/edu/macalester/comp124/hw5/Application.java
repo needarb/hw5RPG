@@ -18,8 +18,9 @@ public class Application
 		//--- Formally, it's called the Model
 		//--- The thing that draws the picture is called the View
 		//--- The thing that lets players select actions is the Controller
-        Player p = new Player(50, 50);
-        p.setName("Ben");
+        Player p = new Player(-1, -1);
+        p.setName("Ned");
+       
         Potion a = new Potion("Potion",1,20);
         Potion b = new Potion("Health", 1, 20);
         Weapon w = new Weapon("Sword", "Sword", 20);
@@ -41,6 +42,7 @@ public class Application
         consoleWindow.add(console);
         consoleWindow.setSize(500,500);
 
+        CharacterCreationGUI characterCreation = new CharacterCreationGUI(theGame,p);
 
         // TODO: Load character screen, create/edit character
 
