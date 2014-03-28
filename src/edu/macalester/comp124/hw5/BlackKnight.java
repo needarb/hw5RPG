@@ -11,7 +11,7 @@ public class BlackKnight extends Enemy {
         setName("Black Knight");
         defense = 4;
         imageFileName = "hw5RPG\\images\\monsters\\blackKnight.png";
-        AttackAction attack1 = new AttackAction(3,5,55,"Skull Bash");
+        AttackAction attack1 = new AttackAction(5,5,55,"Skull Bash");
         AttackAction attack2 = new AttackAction(1,20,100,"Kick");
         AttackAction attack3 = new AttackAction(2,10,90,"Slash");
         combatActions.add(attack1);

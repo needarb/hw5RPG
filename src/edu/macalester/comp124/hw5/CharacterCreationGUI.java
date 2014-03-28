@@ -36,8 +36,8 @@ public class CharacterCreationGUI extends JFrame implements ActionListener
     {
         // --- <answer>:<HealthBoost>,<AttackBoost>,<DefenseBoost>,<SpeedBoost> --- //
         STANDARD_ANSWERS.put(STANDARD_QUESTIONS[0], new String[]{"Male:0,0,0,0", "Female:0,0,0,0", "Other:0,0,0,0"});
-        STANDARD_ANSWERS.put(STANDARD_QUESTIONS[1], new String[]{"3 Feet:5,2,4,-3", "4 Feet:4,2,2,0", "5 Feet:3,2,2,1", "6 Feet:4,3,0,3"});
-        STANDARD_ANSWERS.put(STANDARD_QUESTIONS[2], new String[]{"100 Lbs:0,1,1,6", "150 Lbs:2,2,2,3", "200 Lbs:4,3,3,0", "250 Lbs:6,3,4,-3"});
+        STANDARD_ANSWERS.put(STANDARD_QUESTIONS[1], new String[]{"3 Feet:7,2,4,-3", "4 Feet:6,2,2,0", "5 Feet:5,2,2,1", "6 Feet:6,3,0,3"});
+        STANDARD_ANSWERS.put(STANDARD_QUESTIONS[2], new String[]{"100 Lbs:2,1,1,6", "150 Lbs:4,2,2,3", "200 Lbs:6,3,3,0", "250 Lbs:8,3,4,-3"});
 
         FAVORITE_ANSWERS.put(FAVORITE_QUESTIONS[0], new String[]{"Pizza:0,1,0,0", "Salad:2,0,0,0", "Ice Cream:0,0,1,0", "Jalapeño:0,0,0,1"});
         FAVORITE_ANSWERS.put(FAVORITE_QUESTIONS[1], new String[]{"One Direction:0,0,0,1", "Backstreet Boys:1,0,0,0", "NSYNC:0,0,1,0", "Jones Brothers:0,1,0,0"});

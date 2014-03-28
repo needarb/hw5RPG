@@ -26,6 +26,7 @@ public class Game
 
 		//--- Create a player, stick him in the top left corner
         this.player = player;
+        this.player.theGame = this;
         this.agents.add(player);
 
 		//--- Add the player to the agents list. This list controls

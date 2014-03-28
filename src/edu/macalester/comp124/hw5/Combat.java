@@ -70,6 +70,7 @@ public class Combat
         gui.setFeedbackText(player.name + " defeated " + opponent.name + "!");
         gui.setFeedbackText("Attack Boost: " + opponent.playerAttackBoost);
         gui.setFeedbackText("Defense Boost: " + opponent.playerDefenseBoost);
+        player.theGame.agents.remove(opponent);
         gui.addEndButton();
     }
 

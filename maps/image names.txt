@@ -8,6 +8,7 @@
 # Actors (player, monsters, etc.)
 player , actor.png
 blackKnight , monsters/blackKnight.png
+bamrat , monsters/bamrat.png
 
 # Items
 g , items/gold.png

@@ -9,7 +9,8 @@ public class Player extends Agent
 
     public Weapon equippedWeapon;
     public int attack;
-    public AttackAction currentAttack;;
+    public AttackAction currentAttack;
+    public Game theGame;
 
 	public Player(int speed, int health)
 	{
