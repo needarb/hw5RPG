@@ -7,9 +7,16 @@ public abstract class Enemy extends Agent {
 
     ArrayList<Action> combatActions;
 
-    public Enemy(String type, int speed, int health)
+    int playerAttackBoost; //the attack boost the player gets for beating the Enemy
+    int playerDefenseBoost; // the defense boost the player gets for beating the Enemy
+
+
+    public Enemy(String type, int speed, int health, int playerAttackBoost, int playerDefenseBoost)
     {
         super(type, speed, health);
+        this.playerAttackBoost = playerAttackBoost;
+        this.playerDefenseBoost = playerDefenseBoost;
+        combatActions = new ArrayList<>();
     }
 
     public String performCombatAction(Agent opponent)
