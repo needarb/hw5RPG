@@ -29,7 +29,6 @@ public class Application
         player.receiveItem(a);
         player.receiveItem(b);
         Enemy e = new BlackKnight("knight", 60, 30);
-        e.setName("Knight");
         e.x = 9;
         e.y = 6;
         Enemy e2 = new BlackKnight("knight",60,30);

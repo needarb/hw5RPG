@@ -8,6 +8,7 @@ public class BlackKnight extends Enemy {
     public BlackKnight(String type, int speed, int health)
     {
         super("blackKnight", speed, health, 5, 5);
+        setName("Black Knight");
         defense = 4;
         imageFileName = "hw5RPG\\images\\monsters\\blackKnight.png";
         AttackAction attack1 = new AttackAction(3,5,55,"Skull Bash");
