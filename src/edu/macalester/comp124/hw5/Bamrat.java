@@ -13,7 +13,7 @@ public class Bamrat extends Enemy
         imageFileName = "hw5RPG\\images\\monsters\\bamrat.png";
         AttackAction attack1 = new AttackAction(3,5,55,"Bite");
         AttackAction attack2 = new AttackAction(1,20,100,"Scratch");
-        AttackAction attack3 = new AttackAction(0,10,90,"Fly");
+        AttackAction attack3 = new AttackAction(0,10,90,"Dig");
         combatActions.add(attack1);
         combatActions.add(attack2);
         combatActions.add(attack3);

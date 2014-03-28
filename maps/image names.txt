@@ -9,6 +9,7 @@
 player , actor.png
 blackKnight , monsters/blackKnight.png
 bamrat , monsters/bamrat.png
+bamdoge , monsters/bamdoge.png
 
 # Items
 g , items/gold.png

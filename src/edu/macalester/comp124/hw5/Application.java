@@ -21,7 +21,7 @@ public class Application
         Player player = new Player(-1, -1);
         player.x = 7;
         player.y = 16;
-        player.setName("Ned");
+        player.setName("Ulric Fishke");
        
         Potion a = new Potion("Potion",1,20);
         Potion b = new Potion("Health", 1, 20);
@@ -39,6 +39,9 @@ public class Application
         Enemy e3 = new Bamrat(6,10);
         e3.x = 3;
         e3.y = 4;
+        Enemy e4 = new Bamdoge(1,25);
+        e4.x = 2;
+        e4.y = 18;
 
 
         //Combat combat = new Combat(p, e);
@@ -47,7 +50,7 @@ public class Application
         theGame.agents.add(e);
         theGame.agents.add(e2);
         theGame.agents.add(e3);
-
+        theGame.agents.add(e4);
         CharacterCreationGUI characterCreation = new CharacterCreationGUI(theGame,player);
 
         // TODO: Load character screen, create/edit character
