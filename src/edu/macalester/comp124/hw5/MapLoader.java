@@ -41,19 +41,21 @@ public class MapLoader
     {
         //Map File
         List<String> lines = DataLoader.loadLinesFromFile(fqn);
-        //Last line (which has teleporter code
+        //Last line (which has teleporter code)
         String teleportersLine = lines.get(lines.size()-1);
         //Split up the individual teleporters. First remove all spaces and dashes
         String[] teleportersStrings =  (teleportersLine.substring(1).replaceAll("[(){} \\[\\]\\-]","").split(TELEPORTER_CODES_SPLIT));
-        System.out.println("Number of teleporters: " + teleportersStrings.length);
+        //Create Teleporter Array
         Teleporter[] teleporters = new Teleporter[teleportersStrings.length];
+        //Load each teleporter into the array
         for (int i = 0; i < teleportersStrings.length; i++)
         {
+            //Take the code for one teleporter and split into its source location, new map name, and end location
             String teleString = teleportersStrings[i];
             String[] parts = teleString.split(TELEPORTER_CODE_PARTS_SPLIT);
-            String newMap = parts[1];
-            Location fromLocation = new Location(Integer.parseInt(parts[0].split(",")[0]),Integer.parseInt(parts[0].split(",")[1]));
-            Location toLocation = new Location(Integer.parseInt(parts[2].split(",")[0]),Integer.parseInt(parts[2].split(",")[1]));
+            String newMap = parts[1];                                                                                                 //New map name
+            Location fromLocation = new Location(Integer.parseInt(parts[0].split(",")[0]),Integer.parseInt(parts[0].split(",")[1]));  //Character Location on old map to trigger teleport
+            Location toLocation = new Location(Integer.parseInt(parts[2].split(",")[0]),Integer.parseInt(parts[2].split(",")[1]));    //Character Location on new map
             teleporters[i] = new Teleporter(newMap,fromLocation,toLocation);
         }
         return teleporters;

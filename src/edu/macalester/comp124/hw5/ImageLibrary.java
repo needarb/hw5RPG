@@ -1,6 +1,7 @@
 package edu.macalester.comp124.hw5;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
