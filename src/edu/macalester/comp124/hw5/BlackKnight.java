@@ -8,6 +8,6 @@ public class BlackKnight extends Enemy {
     public BlackKnight(String type, int speed, int health)
     {
         super(type, speed, health, 5, 5);
-        imageFileName = "monsters/blackKnight.png";
+        imageFileName = "hw5RPG\\images\\monsters\\blackKnight.png";
     }
 }

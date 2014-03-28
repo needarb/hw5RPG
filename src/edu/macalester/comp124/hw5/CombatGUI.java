@@ -66,15 +66,14 @@ public class CombatGUI
         feedbackPanel.setSize(500, 50);
         statsPanel.setSize(500, 350);
 
-        ImageIcon i = new ImageIcon("actor.png");
-        playerImage = new JLabel(i);
+        playerImage = new JLabel(new ImageIcon(combat.player.imageFileName));
         opponentImage = new JLabel(new ImageIcon(combat.opponent.imageFileName));
         playerName = new JLabel(combat.player.name);
         playerHealth = new JLabel("Health: " + combat.player.healthPoints);
         opponentName = new JLabel(combat.opponent.name);
         opponentHealth = new JLabel ("Health: " + combat.opponent.healthPoints);
 
-        playerImage.setVisible(true);
+       playerImage.setVisible(true);
         opponentImage.setVisible(true);
         playerName.setVisible(true);
         playerHealth.setVisible(true);

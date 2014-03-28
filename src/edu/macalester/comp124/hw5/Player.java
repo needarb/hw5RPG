@@ -14,7 +14,7 @@ public class Player extends Agent
 	public Player(int speed, int health)
 	{
 		super("player", speed, health);
-        imageFileName = "actor.png";
+        imageFileName = "hw5RPG\\images\\actor.png";
 	}
 
 
