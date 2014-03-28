@@ -41,12 +41,13 @@ public class Player extends Agent
 
 	//public void think(){}
 
-    public void performCombatAction(Action action, Enemy opponent)
+    public String performCombatAction(Action action, Enemy opponent)
     {
        if (action instanceof AttackAction)
-           attackEnemy((AttackAction) action, opponent);
+           return attackEnemy((AttackAction) action, opponent);
        if (action instanceof CombatItemAction)
-           useItem((CombatItemAction) action);
+           return useItem((CombatItemAction) action);
+       return "";
     }
 
     public String attackEnemy(AttackAction action, Enemy target)

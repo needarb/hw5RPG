@@ -30,7 +30,7 @@ public class CombatGUI
     private JLabel opponentName;
     private JLabel opponentHealth;
 
-    private JTextField feedbackField;
+    private JTextArea feedbackField;
 
     HashMap<JButton, UseableItem> useableItemButtons;
     HashMap<JButton, Weapon> weaponButtons;
@@ -96,7 +96,7 @@ public class CombatGUI
         opponentPanel.add(opponentName);
         opponentPanel.add(opponentHealth);
 
-        feedbackField = new JTextField(combat.player.name + " is fighting " + combat.opponent.name + "!!!");
+        feedbackField = new JTextArea(combat.player.name + " is fighting " + combat.opponent.name + "!!!");
         feedbackField.setVisible(true);
         feedbackField.setSize(500,50);
         feedbackField.setEditable(false);
@@ -123,82 +123,6 @@ public class CombatGUI
         opponentPanel.setLayout(new BoxLayout(opponentPanel, BoxLayout.Y_AXIS));
         this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
     }
-    /**private void setFrameLayout()
-    {
-        //playerLayout
-        GroupLayout playerLayout = new GroupLayout(playerPanel);
-        playerPanel.setLayout(playerLayout);
-
-        playerLayout.setHorizontalGroup(
-            playerLayout.createSequentialGroup()
-                  .addGroup(playerLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addComponent(playerImage)
-                        .addComponent(playerName)
-                        .addComponent(playerHealth))
-        );
-        playerLayout.setVerticalGroup(
-                playerLayout.createSequentialGroup()
-                        .addComponent(playerImage)
-                        .addComponent(playerName)
-                        .addComponent(playerHealth)
-        );
-
-        //opponentLayout
-        GroupLayout oppLayout = new GroupLayout(opponentPanel);
-        opponentPanel.setLayout(oppLayout);
-
-        oppLayout.setHorizontalGroup(
-                oppLayout.createSequentialGroup()
-                        .addGroup(oppLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                .addComponent(opponentImage)
-                                .addComponent(opponentName)
-                                .addComponent(opponentHealth))
-        );
-        oppLayout.setVerticalGroup(
-                oppLayout.createSequentialGroup()
-                        .addComponent(opponentImage)
-                        .addComponent(opponentName)
-                        .addComponent(opponentHealth)
-        );
-
-        //statsLayout
-        GroupLayout statsLayout = new GroupLayout(statsPanel);
-        statsPanel.setLayout(statsLayout);
-
-        statsLayout.setHorizontalGroup(
-                statsLayout.createSequentialGroup()
-                .addComponent(playerPanel)
-                .addComponent(opponentPanel)
-        );
-        statsLayout.setVerticalGroup(
-                statsLayout.createSequentialGroup()
-                .addGroup(statsLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                .addComponent(playerPanel)
-                .addComponent(opponentPanel))
-        );
-
-        //buttonLayout
-        buttonPanel.setLayout(new FlowLayout());
-
-        //this.Layout
-        GroupLayout frameLayout = new GroupLayout(this);
-        this.setLayout(frameLayout);
-
-        frameLayout.setHorizontalGroup(
-                frameLayout.createSequentialGroup()
-                .addGroup(frameLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                .addComponent(statsPanel)
-                .addComponent(buttonPanel)
-                .addComponent(feedbackPanel))
-        );
-        frameLayout.setVerticalGroup(
-                frameLayout.createSequentialGroup()
-                .addComponent(statsPanel)
-                .addComponent(buttonPanel)
-                .addComponent(feedbackPanel)
-        );
-    }
-    */
 
     public void addBeginButtons()
     {
@@ -268,11 +192,15 @@ public class CombatGUI
          */
      }
 
-    private void setFeedbackText(String feedback)
+    public void setFeedbackText(String feedback)
     {
         feedbackField.setVisible(false);
-        feedbackField.setText(feedback);
+        feedbackField.setText(feedbackField.getText() + "\n" + feedback);
         feedbackField.setVisible(true);
+    } 
+    public void clearFeedbackText()
+    {
+        feedbackField.setText("");
     }
 
     private void updateHealth()
@@ -287,8 +215,9 @@ public class CombatGUI
     {
         if (e.getSource() == attackButton)
         {
-            combat.takeTurn(combat.player.currentAttack); //the player decides to attack
-            setFeedbackText(combat.player.name + " attacked " + combat.opponent.name + "!");
+            AttackAction attack = combat.player.currentAttack;
+            combat.takeTurn(attack); //the player decides to attack
+            //setFeedbackText(attack.);
             updateHealth();
         }
         if (e.getSource() == itemButton)

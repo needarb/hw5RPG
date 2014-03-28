@@ -30,7 +30,6 @@ public class Application
         p.receiveItem(b);
         Enemy e = new BlackKnight("knight", 60, 30);
         e.setName("Knight");
-        e.combatActions.add(new AttackAction(20,20,20, "attack"));
         Combat combat = new Combat(p, e);
 
         IOConsole console = new IOConsole();

@@ -21,7 +21,7 @@ public class Combat
 
     public void takeTurn(Action playerAction)
     {
-
+        gui.clearFeedbackText();
         if(opponent.combatSpeed > player.combatSpeed)
         {
             performOppAction();
@@ -38,12 +38,14 @@ public class Combat
 
     public void performOppAction()
     {
-        opponent.performCombatAction(player);
+       String feedback = opponent.performCombatAction(player);
+       gui.setFeedbackText(feedback);
     }
 
     public void performPlayAction(Action action)
     {
-        player.performCombatAction(action, opponent);
+       String feedback = player.performCombatAction(action, opponent);
+       gui.setFeedbackText(feedback);
     }
 
     public String playerWinsBattle()
