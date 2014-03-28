@@ -19,6 +19,8 @@ public class Application
 		//--- The thing that draws the picture is called the View
 		//--- The thing that lets players select actions is the Controller
         Player player = new Player(-1, -1);
+        player.x = 7;
+        player.y = 16;
         player.setName("Ned");
        
         Potion a = new Potion("Potion",1,20);
