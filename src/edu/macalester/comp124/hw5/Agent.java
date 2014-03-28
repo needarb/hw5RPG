@@ -64,6 +64,8 @@ public abstract class Agent
     public int takeDamage(int attack)
     {
         int damage = attack-this.defense;
+        if(damage <=0)
+            damage = 1;
         changeHealth(-damage);
         return damage;
     }

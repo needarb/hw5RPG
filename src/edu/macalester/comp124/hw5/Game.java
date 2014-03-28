@@ -20,19 +20,17 @@ public class Game
 	//---	each turn what they want to do
 	public List<Agent> agents = new LinkedList<>();
     private IOConsole console;
-	public Game(IOConsole console)
+	public Game(IOConsole console,Player player)
 	{
         this.console = console;
 		//--- Load a map
 		map = new Map("home");
 
 		//--- Create a player, stick him in the top left corner
-		player = new Player(7,9001);
-		player.x = 5;
-		player.y = 18;
+        this.player = player;
+        this.agents.add(player);
 
 		//--- Add the player to the agents list. This list controls
-		agents.add(player);
 	}
 
 	public void movePlayer(int x, int y)
