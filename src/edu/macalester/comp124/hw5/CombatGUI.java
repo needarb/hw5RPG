@@ -227,7 +227,6 @@ public class CombatGUI
         {
             UseableItem item = useableItemButtons.get(e.getSource());
             combat.takeTurn(item.combatUse);//uses the item the player chooses
-            setFeedbackText(combat.player.name + " used " + item.getName());
             addBeginButtons();
             updateHealth();
         }
