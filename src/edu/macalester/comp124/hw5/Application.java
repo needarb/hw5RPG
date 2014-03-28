@@ -19,12 +19,19 @@ public class Application
 		//--- The thing that draws the picture is called the View
 		//--- The thing that lets players select actions is the Controller
         Player p = new Player(50, 50);
+        p.setName("Ben");
         Potion a = new Potion("Potion",1,20);
         Potion b = new Potion("Health", 1, 20);
+        Weapon w = new Weapon("Sword", "Sword", 20);
+        p.receiveItem(w);
+        System.out.println(p.equipableInventory.toString());
         p.receiveItem(a);
         p.receiveItem(b);
-        Enemy e = new BlackKnight("knight", 60, 50);
-        CombatGUI combat = new CombatGUI(new Combat(p, e));
+        Enemy e = new BlackKnight("knight", 60, 30);
+        e.setName("Knight");
+        e.combatActions.add(new AttackAction(20,20,20, "attack"));
+        Combat combat = new Combat(p, e);
+
         IOConsole console = new IOConsole();
 		Game theGame = new Game(console);
 
