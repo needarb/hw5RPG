@@ -5,7 +5,7 @@ import java.util.*;
  */
 public abstract class Enemy extends Agent {
 
-    ArrayList<Action> combatActions;
+    public ArrayList<Action> combatActions;
 
     int playerAttackBoost; //the attack boost the player gets for beating the Enemy
     int playerDefenseBoost; // the defense boost the player gets for beating the Enemy
