@@ -15,6 +15,9 @@ public class Player extends Agent
 	{
 		super("player", speed, health);
         imageFileName = "hw5RPG\\images\\actor.png";
+        Weapon dagger = new Weapon("dagger", "Dagger", 10);
+        this.receiveItem(dagger);
+        setEquippedWeapon(dagger);
 	}
 
     public void setHealth(int health)
@@ -38,13 +41,14 @@ public class Player extends Agent
 
 	//public void think(){}
 
-    public void performCombatAction(Action action, Agent opponent)
+    public void performCombatAction(Action action, Enemy opponent)
     {
        if (action instanceof AttackAction)
-           attackEnemy((AttackAction) action, (Enemy) opponent);
+           attackEnemy((AttackAction) action, opponent);
        if (action instanceof CombatItemAction)
            useItem((CombatItemAction) action);
     }
+
     public String attackEnemy(AttackAction action, Enemy target)
     {
         action.performAction(target);
@@ -57,7 +61,7 @@ public class Player extends Agent
         return (this.name + " used " + action.item.getName());
     }
 
-    public String setEquippedWeapon(Weapon weapon) //TODO make a switchEquipableAction class
+    public String setEquippedWeapon(Weapon weapon)
     {
         equippedWeapon = weapon;
         currentAttack = new AttackAction(weapon.combatPower, 50, 100, weapon.getName());

@@ -16,9 +16,9 @@ public class AttackAction
 
     public void performAction(Agent target)
     {
-        if(uses<0)//makes sure user can use attack
+        if(uses>0)//makes sure user can use attack
         {
-            int damage = target.takeDamage(strength);
+            target.takeDamage(strength);
             uses--;//used once, so useable amount reduces
         }
     }

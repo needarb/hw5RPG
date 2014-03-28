@@ -275,12 +275,21 @@ public class CombatGUI
         feedbackField.setVisible(true);
     }
 
+    private void updateHealth()
+    {
+        statsPanel.setVisible(false);
+        playerHealth.setText("Health: " + combat.player.healthPoints);
+        opponentHealth.setText("Health: " + combat.opponent.healthPoints);
+        statsPanel.setVisible(true);
+    }
+
     public void actionPerformed(ActionEvent e)
     {
         if (e.getSource() == attackButton)
         {
             combat.takeTurn(combat.player.currentAttack); //the player decides to attack
             setFeedbackText(combat.player.name + " attacked " + combat.opponent.name + "!");
+            updateHealth();
         }
         if (e.getSource() == itemButton)
             addItemButtons();//Allows character to choose which item to use
@@ -291,6 +300,7 @@ public class CombatGUI
             combat.takeTurn(item.combatUse);//uses the item the player chooses
             setFeedbackText(combat.player.name + " used " + item.getName());
             addBeginButtons();
+            updateHealth();
         }
 
         if(weaponButtons.containsKey(e.getSource()))
@@ -308,6 +318,7 @@ public class CombatGUI
             setFeedbackText(combat.playerRunsAway());
             dispose();
         }
+
 
     }
 }
