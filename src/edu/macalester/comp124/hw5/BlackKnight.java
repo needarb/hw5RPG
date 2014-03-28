@@ -7,6 +7,6 @@ public class BlackKnight extends Enemy {
 
     public BlackKnight(String type, int speed, int health)
     {
-        super(type, speed, health);
+        super(type, speed, health, 5, 5);
     }
 }
