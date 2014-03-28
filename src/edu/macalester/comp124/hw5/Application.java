@@ -37,15 +37,9 @@ public class Application
 
         //Combat combat = new Combat(p, e);
 
-        IOConsole console = new IOConsole();
-		Game theGame = new Game(console,player);
+		Game theGame = new Game(player);
         theGame.agents.add(e);
         theGame.agents.add(e2);
-
-        //--- Create Console Window
-        JFrame consoleWindow = new JFrame("Console");
-        consoleWindow.add(console);
-        consoleWindow.setSize(500,500);
 
         CharacterCreationGUI characterCreation = new CharacterCreationGUI(theGame,player);
 
@@ -57,7 +51,5 @@ public class Application
 		MainForm mapScreen = new MainForm(theGame);
 
 		mapScreen.setVisible(true);
-        consoleWindow.setVisible(true);
-        console.println("Welcome to the The Bamther Chronicles!");
 	}
 }

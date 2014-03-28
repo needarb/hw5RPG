@@ -19,10 +19,8 @@ public class Game
 	//--- We need to know this so we know who to draw and so that we can ask
 	//---	each turn what they want to do
 	public List<Agent> agents = new LinkedList<>();
-    private IOConsole console;
-	public Game(IOConsole console,Player player)
+	public Game(Player player)
 	{
-        this.console = console;
 		//--- Load a map
 		map = new Map("home");
 
@@ -120,9 +118,4 @@ public class Game
 //		form.enemies = ???;
 //		form.run();
 	}
-
-    public IOConsole getConsole()
-    {
-        return console;
-    }
 }

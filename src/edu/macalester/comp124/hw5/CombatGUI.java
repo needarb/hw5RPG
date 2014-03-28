@@ -234,6 +234,8 @@ public class CombatGUI
 
         if (useableItemButtons.containsKey(e.getSource()))
         {
+            if(combat.player.healthPoints <=0)
+                return;
             UseableItem item = useableItemButtons.get(e.getSource());
             combat.takeTurn(item.combatUse);//uses the item the player chooses
             addBeginButtons();
