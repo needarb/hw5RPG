@@ -13,7 +13,7 @@ import java.util.List;
 public class Game
 {
 	public Map map;
-	public Agent player;	// change this to whatever subclass player is
+	public Player player;	// change this to whatever subclass player is
 
 	//--- A list of all the agents in the game (player, NPCs, monsters, etc.)
 	//--- We need to know this so we know who to draw and so that we can ask
@@ -47,6 +47,17 @@ public class Game
         if(map.getItem(x,y) != null)
             System.out.println("Player walked on an item");
              //player.giveItem(map.getItem(x,y));
+
+        for(Agent a:agents)
+        {
+            if(player.x == a.x && player.y == a.y)
+                if(a instanceof Enemy)
+                {
+                    Enemy e = (Enemy) a;
+                    new Combat(player,e);
+                    return;
+                }
+        }
         //---If possible teleport
         for(Teleporter t: map.getTeleporters())
         {

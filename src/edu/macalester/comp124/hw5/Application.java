@@ -30,11 +30,18 @@ public class Application
         p.receiveItem(b);
         Enemy e = new BlackKnight("knight", 60, 30);
         e.setName("Knight");
-        Combat combat = new Combat(p, e);
+        e.x = 9;
+        e.y = 6;
+        Enemy e2 = new BlackKnight("knight",60,30);
+        e2.x=10;
+        e2.y=6;
+
+        //Combat combat = new Combat(p, e);
 
         IOConsole console = new IOConsole();
 		Game theGame = new Game(console);
-
+        theGame.agents.add(e);
+        theGame.agents.add(e2);
 
         //--- Create Console Window
         JFrame consoleWindow = new JFrame("Console");

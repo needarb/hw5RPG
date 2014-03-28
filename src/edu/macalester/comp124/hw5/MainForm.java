@@ -244,7 +244,9 @@ public class MainForm extends javax.swing.JFrame
 			Image scaled   = resize(original);
 			scaledImages.put(key, scaled);
 		}
-	}
+        for(String s:scaledImages.keySet())
+            System.out.println(s);
+    }
 	//</editor-fold>
 
 	//<editor-fold defaultstate="collapsed" desc="auto-generated stuff">
