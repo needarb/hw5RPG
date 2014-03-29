@@ -55,6 +55,7 @@ public class Game
                     return;
                 }
         }
+
         //---If possible teleport
         for(Teleporter t: map.getTeleporters())
         {

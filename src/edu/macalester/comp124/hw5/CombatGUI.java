@@ -113,7 +113,6 @@ public class CombatGUI
         this.add(buttonPanel);
         this.add(feedbackPanel);
 
-        System.out.println(playerImage.getLocation());
         addBeginButtons();
 
     }
@@ -185,6 +184,7 @@ public class CombatGUI
     {
         buttonPanel.setVisible(false);
         buttonPanel.removeAll();
+        useableItemButtons.clear();
 
         for(UseableItem item: combat.player.useableInventory)
         {
@@ -215,9 +215,17 @@ public class CombatGUI
 
     private void updateHealth()
     {
+        int playerHP = combat.player.healthPoints;
+        int opponentHP = combat.opponent.healthPoints;
+
+        if (playerHP<0)
+            playerHP = 0;
+        if (opponentHP<0)
+            opponentHP = 0;
+
         statsPanel.setVisible(false);
-        playerHealth.setText("Health: " + combat.player.healthPoints);
-        opponentHealth.setText("Health: " + combat.opponent.healthPoints);
+        playerHealth.setText("Health: " + playerHP);
+        opponentHealth.setText("Health: " + opponentHP);
         statsPanel.setVisible(true);
     }
 
@@ -230,7 +238,14 @@ public class CombatGUI
             updateHealth();
         }
         if (e.getSource() == itemButton)
+        {
             addItemButtons();//Allows character to choose which item to use
+            if (useableItemButtons.size() == 0)
+            {
+                setFeedbackText("No Items Available");
+                addBeginButtons();
+            }
+        }
 
         if (useableItemButtons.containsKey(e.getSource()))
         {
@@ -240,6 +255,7 @@ public class CombatGUI
             combat.takeTurn(item.combatUse);//uses the item the player chooses
             addBeginButtons();
             updateHealth();
+            combat.player.updateUseableInventory();
         }
 
         if(weaponButtons.containsKey(e.getSource()))

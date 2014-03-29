@@ -38,7 +38,15 @@ public class Player extends Agent
         this.combatSpeed = speed;
     }
 
+    public void updateUseableInventory()
+    {
+        for(UseableItem item : useableInventory)
+        {
+            if (item.getUsesLeft() <= 0)
+                useableInventory.remove(item);
+        }
 
+    }
 
 	//public void think(){}
 
