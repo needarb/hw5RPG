@@ -128,7 +128,7 @@ public class Map
         switch (itemString)
         {
             case("p"):          //New Potion
-                return null;
+                return new Potion("health",1,15);
             default:
                 return null;
         }

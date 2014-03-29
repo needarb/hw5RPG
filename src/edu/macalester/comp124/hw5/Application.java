@@ -59,7 +59,6 @@ public class Application
 		//--- The map screen is a View of our game
 		//--- It's also our Controller when navigating the map
 		MainForm mapScreen = new MainForm(theGame);
-        theGame.mainForm = mapScreen;
 		mapScreen.setVisible(true);
 	}
 }

@@ -1,5 +1,7 @@
 package edu.macalester.comp124.hw5;
 
+import java.util.ConcurrentModificationException;
+
 /**
  *
  * @author baylor
@@ -11,28 +13,35 @@ public class Player extends Agent
     public int attack;
     public AttackAction currentAttack;
     public Game theGame;
+    private boolean inCombat;
 
-	public Player(int speed, int health)
-	{
-		super("player", speed, health);
+    public Player(int speed, int health)
+    {
+        super("player", speed, health);
+        inCombat = false;
         imageFileName = "hw5RPG\\images\\actor.png";
         Weapon dagger = new Weapon("dagger", "Dagger", 10);
         this.receiveItem(dagger);
         setEquippedWeapon(dagger);
-	}
+    }
+
+    public void setInCombat(boolean combat) { this.inCombat = combat; }
 
     public void setHealth(int health)
     {
         this.healthPoints = health;
     }
+
     public void setAttack(int attack)
     {
         this.attack = attack;
     }
+
     public void setDefense(int defense)
     {
         this.defense = defense;
     }
+
     public void setSpeed(int speed)
     {
         this.combatSpeed = speed;
@@ -48,7 +57,6 @@ public class Player extends Agent
                 return;
             }
         }
-
     }
 
 	//public void think(){}
@@ -80,4 +88,6 @@ public class Player extends Agent
         currentAttack = new AttackAction(weapon.combatPower, 50, 100, weapon.getName());
         return (this.name + " equipped " + weapon.name + ".");
     }
+
+    public boolean isInCombat() {return inCombat;}
 }

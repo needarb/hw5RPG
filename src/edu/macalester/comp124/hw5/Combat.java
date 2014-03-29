@@ -16,6 +16,7 @@ public class Combat
     {
         this.opponent = opponent;
         this.player = player;
+        player.setInCombat(true);
         gui = new CombatGUI(this);
     }
 
@@ -71,6 +72,7 @@ public class Combat
         gui.setFeedbackText("Attack Boost: " + opponent.playerAttackBoost);
         gui.setFeedbackText("Defense Boost: " + opponent.playerDefenseBoost);
         player.theGame.agents.remove(opponent);
+        player.theGame.mainForm.repaint();
         gui.addEndButton();
     }
 

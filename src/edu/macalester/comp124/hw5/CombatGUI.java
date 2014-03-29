@@ -275,8 +275,9 @@ public class CombatGUI
         }
 
         if (e.getSource() == done)
+        {
+            combat.player.setInCombat(false);
             dispose();
-
-
+        }
     }
 }

@@ -3,6 +3,7 @@ package edu.macalester.comp124.hw5;
 import acm.io.IOConsole;
 import com.sun.org.apache.xpath.internal.SourceTree;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,10 +21,15 @@ public class Game
 	//---	each turn what they want to do
 	public List<Agent> agents = new LinkedList<>();
     public MainForm mainForm;
+    public static final String[] MAP_NAMES = {"main","home","mountains"};
+    private HashMap<String,Map> maps;
 	public Game(Player player)
 	{
-		//--- Load a map
-		map = new Map("home");
+		//--- Load da maps
+        maps = new HashMap<>();
+		for(String s:MAP_NAMES)
+            maps.put(s,new Map(s));
+        this.map = maps.get("home");
 
 		//--- Create a player, stick him in the top left corner
         this.player = player;
@@ -38,14 +44,12 @@ public class Game
 		//--- Don't do anything if the move is illegal
         if(!map.isPassable(x,y))
            return;
-		//--- Move the player to the new spot
-		player.x = x;
-		player.y = y;
-        //---Resolve any items the player walked on
-        if(map.getItem(x,y) != null)
-            System.out.println("Player walked on an item");
-             //player.giveItem(map.getItem(x,y));
 
+        //--- Don't do anything if the player is fighting an enemy
+        if(player.isInCombat())
+            return;
+
+        //--- If in a fight, fight
         for(Agent a:agents)
         {
             if(player.x == a.x && player.y == a.y)
@@ -57,11 +61,21 @@ public class Game
                 }
         }
 
-        //---If possible teleport
+		//--- Move the player to the new spot
+		player.x = x;
+		player.y = y;
+
+        //---Resolve any items the player walked on
+        if(map.getItem(x,y) != null)
+        {
+             player.receiveItem(map.getItem(x, y));
+            map.items[x][y] = null;
+        }
+
+
+        //--- If possible teleport
         for(Teleporter t: map.getTeleporters())
         {
-            System.out.println("Players x: " + x + " Players y: " + y);
-            System.out.println("Teleporter x: " + t.getFromLocation().getX() + " Teleporter y: " + t.getFromLocation().getY());
             if(t.getFromLocation().getX() == x && t.getFromLocation().getY() == y)
             {
                 teleportPlayer(t);
@@ -95,10 +109,9 @@ public class Game
     public void teleportPlayer(Teleporter t)
     {
         System.out.println("Teleporting playing to new map: " + t.getNewMap());
-        Map m = new Map(t.getNewMap());
         player.x = t.getToLocation().getX();
         player.y = t.getToLocation().getY();
-        this.map = m;
+        this.map = maps.get(t.getNewMap());
     }
 
 

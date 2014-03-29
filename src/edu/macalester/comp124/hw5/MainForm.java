@@ -31,6 +31,7 @@ public class MainForm extends javax.swing.JFrame
 	public MainForm(Game game)
 	{
 		this.game = game;
+        this.game.mainForm = this;
 
 		initComponents();
 		setLocationRelativeTo(null);
