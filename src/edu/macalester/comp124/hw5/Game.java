@@ -19,6 +19,7 @@ public class Game
 	//--- We need to know this so we know who to draw and so that we can ask
 	//---	each turn what they want to do
 	public List<Agent> agents = new LinkedList<>();
+    public MainForm mainForm;
 	public Game(Player player)
 	{
 		//--- Load a map

@@ -1,7 +1,8 @@
 package edu.macalester.comp124.hw5;
 
+import java.util.ConcurrentModificationException;
+
 /**
- *
  * @author baylor
  */
 public class Player extends Agent
@@ -12,27 +13,30 @@ public class Player extends Agent
     public AttackAction currentAttack;
     public Game theGame;
 
-	public Player(int speed, int health)
-	{
-		super("player", speed, health);
+    public Player(int speed, int health)
+    {
+        super("player", speed, health);
         imageFileName = "hw5RPG\\images\\actor.png";
         Weapon dagger = new Weapon("dagger", "Dagger", 10);
         this.receiveItem(dagger);
         setEquippedWeapon(dagger);
-	}
+    }
 
     public void setHealth(int health)
     {
         this.healthPoints = health;
     }
+
     public void setAttack(int attack)
     {
         this.attack = attack;
     }
+
     public void setDefense(int defense)
     {
         this.defense = defense;
     }
+
     public void setSpeed(int speed)
     {
         this.combatSpeed = speed;
@@ -40,23 +44,25 @@ public class Player extends Agent
 
     public void updateUseableInventory()
     {
-        for(UseableItem item : useableInventory)
+        for (UseableItem item:useableInventory)
         {
-            if (item.getUsesLeft() <= 0)
+            if (item.getUsesLeft() <=0)
+            {
                 useableInventory.remove(item);
+                return;
+            }
         }
-
     }
 
-	//public void think(){}
+    //public void think(){}
 
     public String performCombatAction(Action action, Enemy opponent)
     {
-       if (action instanceof AttackAction)
-           return attackEnemy((AttackAction) action, opponent);
-       if (action instanceof CombatItemAction)
-           return useItem((CombatItemAction) action);
-       return "";
+        if (action instanceof AttackAction)
+            return attackEnemy((AttackAction) action, opponent);
+        if (action instanceof CombatItemAction)
+            return useItem((CombatItemAction) action);
+        return "";
     }
 
     public String attackEnemy(AttackAction action, Enemy target)
