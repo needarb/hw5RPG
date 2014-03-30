@@ -10,6 +10,9 @@ public abstract class Enemy extends Agent {
     int playerAttackBoost; //the attack boost the player gets for beating the Enemy
     int playerDefenseBoost; // the defense boost the player gets for beating the Enemy
 
+    //two sets of coordinates that the enemy walks in between
+    int[] pathPointA;
+    int[] pathPointB;
 
     public Enemy(String type, int speed, int health, int playerAttackBoost, int playerDefenseBoost)
     {
@@ -17,6 +20,12 @@ public abstract class Enemy extends Agent {
         this.playerAttackBoost = playerAttackBoost;
         this.playerDefenseBoost = playerDefenseBoost;
         combatActions = new ArrayList<>();
+    }
+
+    public void setPath(int[] pointA, int[] pointB)//sets the path of the Enemy
+    {
+        pathPointA = pointA;
+        pathPointB = pointB;
     }
 
     public String performCombatAction(Agent opponent)

@@ -90,21 +90,50 @@ public class MapLoader
             {
                 String enemyInfo = enemyStrings[i];
                 String[] info = enemyInfo.split(ENEMY_INFO_SPLITS);
-                String enemyType = info[0];
-                String[] enemyLoc = info[1].replaceAll("[()]","").split(",");
+
+                String enemyType = info[0];//indicator of which enemy
+
+                String[] enemyLoc = info[1].replaceAll("[()]","").split(",");//the coordinates of the enemy
                 int xLoc = Integer.parseInt(enemyLoc[0]);
                 int yLoc = Integer.parseInt(enemyLoc[1]);
+                //The set path for the enemy
+                String[] pathPoints = info[2].replaceAll("[\\[|\\]]", "").split(">>");
+                String[] pathPointAString = pathPoints[0].split(",");
+                String[] pathPointBString = pathPoints[1].split(",");
 
+                int[] pathPointA = new int[2];
+                int[] pathPointB = new int[2];
+                for (int j = 0; j < pathPointAString.length; j++)
+                {
+                    pathPointA[j] = Integer.parseInt(pathPointAString[j]);
+                    pathPointB[j] = Integer.parseInt(pathPointBString[j]);
+                }
 
-                Enemy e = enemyCode.get(enemyType);
+                Enemy e = createEnemy(enemyType);
                 e.x = xLoc;
                 e.y = yLoc;
+                e.setPath(pathPointA, pathPointB);
 
                 enemies[i] = e;
             }
         }
 
         return enemies;
+    }
+
+    private static Enemy createEnemy(String c)
+    {
+        switch(c)
+        {
+            case "b":
+                return (new BlackKnight(20,30));
+            case "d":
+                return (new Bamdoge(10,30));
+            case "r":
+                return (new Bamrat(25,10));
+            default:
+                return null;
+        }
     }
 
     private static int findSpecCharacter(List<String> lines, char specChar)

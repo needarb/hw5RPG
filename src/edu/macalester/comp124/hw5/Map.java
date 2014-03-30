@@ -2,12 +2,14 @@ package edu.macalester.comp124.hw5;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Map
 {
 	private String mapsDirectoryName = "hw5RPG/maps/";
 
+    public List<Agent> mapAgents = new LinkedList<>();
 	// Maps are represented (x,y) / (column, row) / (width, height)
 	public String[][] terrain;	// grass, water, etc.
 	public String[][] items;	// treasure, potions, etc.
@@ -23,7 +25,7 @@ public class Map
 	//<editor-fold defaultstate="collapsed" desc="constructors and accessors">
 	public Map(String mapName)
 	{
-		loadPassabilityInformation();
+        loadPassabilityInformation();
 		loadMap(mapName);
         loadTeleporters(mapName);
         loadEnemies(mapName);
@@ -41,6 +43,8 @@ public class Map
     {
         String fileName = mapName + ".terrain.map";
         enemies = MapLoader.getEnemies(mapsDirectoryName + fileName);
+        for (Enemy e : enemies)
+            mapAgents.add(e);
     }
     public Teleporter[] getTeleporters()
     {

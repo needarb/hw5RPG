@@ -34,16 +34,18 @@ public class Game
 		//--- Create a player, stick him in the top left corner
         this.player = player;
         this.player.theGame = this;
-        this.agents.add(player);
-        addEnemiesToAgents();
+
+        updateAgents();
 
 		//--- Add the player to the agents list. This list controls
 	}
 
-    private void addEnemiesToAgents()
+    private void updateAgents()
     {
-        for(Enemy enemy: map.getEnemies())
-            agents.add(enemy);
+            agents = this.map.mapAgents;
+
+        if (!agents.contains(player))
+            agents.add(player);
     }
 
 	public void movePlayer(int x, int y)
@@ -119,6 +121,8 @@ public class Game
         player.x = t.getToLocation().getX();
         player.y = t.getToLocation().getY();
         this.map = maps.get(t.getNewMap());
+
+        updateAgents();
     }
 
 
