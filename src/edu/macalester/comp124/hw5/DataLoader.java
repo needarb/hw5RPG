@@ -6,10 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.text.BreakIterator;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Simplify the ridiculously difficult/error prone process of reading text
@@ -18,9 +15,16 @@ import java.util.Scanner;
  */
 public class DataLoader
 {
-    public static List<String> loadLinesFromFile(String fullyQualifiedName)
+    public static HashMap<Character, Integer> specCharIndex;
+    public static ArrayList<Character> specCharacters;
+
+      public static List<String> loadLinesFromFile(String fullyQualifiedName)
 	{
 
+        specCharIndex = new HashMap<>();
+        specCharacters = new ArrayList<>();
+        specCharacters.add('%');
+        specCharacters.add('@');
 
 		File f = new File(fullyQualifiedName);
         System.out.println(f.getAbsolutePath());
@@ -49,6 +53,12 @@ public class DataLoader
 
 		return lines;
 	}
+
+
+    public static int getSpecCharIndex(char c)
+    {
+        return specCharIndex.get(c);
+    }
 
 	/**
 	 * Returns a set of sentences from a file. Sentences are lines delimited

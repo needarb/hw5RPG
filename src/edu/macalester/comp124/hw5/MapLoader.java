@@ -1,5 +1,6 @@
 package edu.macalester.comp124.hw5;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -9,6 +10,8 @@ import java.util.List;
 public class MapLoader
 {
     public static final char TELE_STARTER = '%';
+    public static final char ENEMY_STARTER = '@';
+
     public static String[][] getMap(String fqn)
 	{
 		int width, height;
@@ -21,6 +24,8 @@ public class MapLoader
 		height = lines.size();
         if(lines.get(lines.size()-1).charAt(0) == TELE_STARTER)
             height--;
+        else if(lines.get(lines.size()-1).charAt(0) == ENEMY_STARTER)
+            height -= 2;
 		map = new String[width][height];
 
 		for (int y = 0; y < height; y++)
@@ -42,7 +47,7 @@ public class MapLoader
         //Map File
         List<String> lines = DataLoader.loadLinesFromFile(fqn);
         //Last line (which has teleporter code)
-        String teleportersLine = lines.get(lines.size()-1);
+        String teleportersLine = lines.get(findSpecCharacter(lines, TELE_STARTER));
         //Split up the individual teleporters. First remove all spaces and dashes
         String[] teleportersStrings =  (teleportersLine.substring(1).replaceAll("[(){} \\[\\]\\-]","").split(TELEPORTER_CODES_SPLIT));
         //Create Teleporter Array
@@ -59,5 +64,57 @@ public class MapLoader
             teleporters[i] = new Teleporter(newMap,fromLocation,toLocation);
         }
         return teleporters;
+    }
+
+    public static final String ENEMY_CODE_SPLITS = "_";
+    public static final String ENEMY_INFO_SPLITS = ":";
+    public static Enemy[] getEnemies(String fqn)
+    {
+        Enemy[] enemies = new Enemy[0];
+        HashMap<String, Enemy> enemyCode = new HashMap<>();
+        enemyCode.put("b", new BlackKnight(20,30));
+        enemyCode.put("d", new Bamdoge(10,30));
+        enemyCode.put("r", new Bamrat(20,10));
+        //Map file
+        List<String> lines = DataLoader.loadLinesFromFile(fqn);
+        //line with enemy code
+        if (findSpecCharacter(lines, ENEMY_STARTER) != -1)
+        {
+            String enemyLine = lines.get(findSpecCharacter(lines,  ENEMY_STARTER));
+            //split up different enemies and coordinates
+            String[] enemyStrings = (enemyLine.substring(1).split(ENEMY_CODE_SPLITS));
+
+            enemies = new Enemy[enemyStrings.length];
+
+            for (int i = 0; i < enemyStrings.length; i++)
+            {
+                String enemyInfo = enemyStrings[i];
+                String[] info = enemyInfo.split(ENEMY_INFO_SPLITS);
+                String enemyType = info[0];
+                String[] enemyLoc = info[1].replaceAll("[()]","").split(",");
+                int xLoc = Integer.parseInt(enemyLoc[0]);
+                int yLoc = Integer.parseInt(enemyLoc[1]);
+
+
+                Enemy e = enemyCode.get(enemyType);
+                e.x = xLoc;
+                e.y = yLoc;
+
+                enemies[i] = e;
+            }
+        }
+
+        return enemies;
+    }
+
+    private static int findSpecCharacter(List<String> lines, char specChar)
+    {
+        for(int i = 0; i < lines.size(); i++)
+        {
+            if(lines.get(i).charAt(0) == specChar)
+                return i;
+        }
+
+        return -1;
     }
 }

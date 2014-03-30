@@ -18,12 +18,15 @@ public class Map
 
     //--- Teleporters on this map
     private Teleporter[] teleporters;
+    //---Enemies on this map
+    private Enemy[] enemies;
 	//<editor-fold defaultstate="collapsed" desc="constructors and accessors">
 	public Map(String mapName)
 	{
 		loadPassabilityInformation();
 		loadMap(mapName);
         loadTeleporters(mapName);
+        loadEnemies(mapName);
 	}
 
     private void loadTeleporters(String mapName)
@@ -34,11 +37,17 @@ public class Map
             System.out.println("Teleporter to " + t.getNewMap() + " at this location " + t.getFromLocation().getX() + "," + t.getFromLocation().getY());
     }
 
+    private void loadEnemies(String mapName)
+    {
+        String fileName = mapName + ".terrain.map";
+        enemies = MapLoader.getEnemies(mapsDirectoryName + fileName);
+    }
     public Teleporter[] getTeleporters()
     {
         return teleporters;
     }
 
+    public Enemy[] getEnemies() { return enemies; }
 
     private void loadPassabilityInformation()
 	{

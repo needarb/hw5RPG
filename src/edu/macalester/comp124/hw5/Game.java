@@ -35,9 +35,16 @@ public class Game
         this.player = player;
         this.player.theGame = this;
         this.agents.add(player);
+        addEnemiesToAgents();
 
 		//--- Add the player to the agents list. This list controls
 	}
+
+    private void addEnemiesToAgents()
+    {
+        for(Enemy enemy: map.getEnemies())
+            agents.add(enemy);
+    }
 
 	public void movePlayer(int x, int y)
 	{
@@ -52,7 +59,7 @@ public class Game
         //--- If in a fight, fight
         for(Agent a:agents)
         {
-            if(player.x == a.x && player.y == a.y)
+            if(x == a.x && y == a.y)
                 if(a instanceof Enemy)
                 {
                     Enemy e = (Enemy) a;
