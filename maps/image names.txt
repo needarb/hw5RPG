@@ -14,6 +14,7 @@ bamdoge , monsters/bamdoge.png
 # Items
 g , items/gold.png
 b , items/blackKnight.png
+s , items/sword.png
 p , items/potion.png
 W , items/waterStone.png
 F , items/fireStone.png

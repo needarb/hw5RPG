@@ -142,6 +142,8 @@ public class Map
         {
             case("p"):          //New Potion
                 return new Potion("health",1,15);
+            case("s"):
+                return Weapon.SWORD;
             default:
                 return null;
         }
