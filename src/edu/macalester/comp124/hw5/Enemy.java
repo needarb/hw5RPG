@@ -14,9 +14,12 @@ public abstract class Enemy extends Agent {
     int[] pathPointA;
     int[] pathPointB;
 
+    boolean movingForward;
+
     public Enemy(String type, int speed, int health, int playerAttackBoost, int playerDefenseBoost)
     {
         super(type, speed, health);
+        movingForward = true;
         this.playerAttackBoost = playerAttackBoost;
         this.playerDefenseBoost = playerDefenseBoost;
         combatActions = new ArrayList<>();
@@ -28,6 +31,43 @@ public abstract class Enemy extends Agent {
         pathPointB = pointB;
     }
 
+    public void switchMovingForward()
+    {
+        movingForward = !movingForward;
+    }
+
+    public int[] moveEnemy()
+    {
+        //switches the direction the enemy moves in if the enemy is at that location
+        int[] temp = {this.x, this.y};
+        if(temp == pathPointA || temp == pathPointB)
+            switchMovingForward();
+
+        int tempX = this.x;
+        int tempY = this.y;
+
+        int[] newLoc;
+        //move vertically
+        if (pathPointA[0] == pathPointB[0])
+        {
+            if(movingForward)
+                tempY++;
+            else
+                tempY--;
+        }
+        //moving horizontally
+        else
+        {
+            if(movingForward)
+                tempX++;
+            else
+                tempX--;
+        }
+
+        newLoc = new int[]{tempX, tempY};
+        return newLoc;
+
+    }
     public String performCombatAction(Agent opponent)
     {
         Random generator = new Random();

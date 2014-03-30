@@ -48,8 +48,38 @@ public class Game
             agents.add(player);
     }
 
+    public void moveEnemy()
+    {
+        int x, y; //enemy x and y
+        for(Enemy e : map.getEnemies())
+        {
+            int[] coordinates = e.moveEnemy();
+            x = coordinates[0];
+            y = coordinates[1];
+
+            if(!map.isPassable(x,y))
+            {
+                e.switchMovingForward();
+                return;
+            }
+
+            if(player.isInCombat())
+                return;
+
+            //makes sure enemy doesn't move through the player
+            if(x == player.x && y == player.y)
+                return;
+
+            e.x = x;
+            e.y = y;
+        }
+    }
+
 	public void movePlayer(int x, int y)
 	{
+        //--moves the enemy first
+        moveEnemy();
+
 		//--- Don't do anything if the move is illegal
         if(!map.isPassable(x,y))
            return;
