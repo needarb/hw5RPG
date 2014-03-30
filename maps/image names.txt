@@ -32,6 +32,7 @@ L , BackgroundTiles/downLeftShack.png
 @ , BackgroundTiles/teleporter.png
 C , BackgroundTiles/caveFront.png
 B , BackgroundTiles/caveBack.png
+r , BackgroundTiles/mountainRiver.png
 
 
 # Misc
