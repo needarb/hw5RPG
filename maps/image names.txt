@@ -36,6 +36,9 @@ L , BackgroundTiles/downLeftShack.png
 C , BackgroundTiles/caveFront.png
 B , BackgroundTiles/caveBack.png
 r , BackgroundTiles/mountainRiver.png
+s , BackgroundTiles/sand.png
+= , BackgroundTiles/woodPlank.png
+R , BackgroundTiles/waterRock.png
 
 
 # Misc
