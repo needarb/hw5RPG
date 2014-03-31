@@ -66,8 +66,8 @@ public class Combat
     public void playerWinsBattle()
     {
         //give a message about winning and stat change
-        player.attack += opponent.playerAttackBoost;
-        player.defense += opponent.playerDefenseBoost;
+        player.setAttack(opponent.playerAttackBoost + player.attack);
+        player.setDefense(opponent.playerDefenseBoost + player.defense);
         gui.setFeedbackText(player.name + " defeated " + opponent.name + "!");
         gui.setFeedbackText("Attack Boost: " + opponent.playerAttackBoost);
         gui.setFeedbackText("Defense Boost: " + opponent.playerDefenseBoost);

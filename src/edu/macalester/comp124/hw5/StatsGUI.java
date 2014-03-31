@@ -17,6 +17,7 @@ public class StatsGUI extends JFrame
     {
         this.p = p;
         p.addStatsGUI(this);
+        setSize(300,100);
        setLayout(new FlowLayout());
         health = new JLabel("Health: " + p.healthPoints);
         attack = new JLabel("Attack: " + p.attack);
