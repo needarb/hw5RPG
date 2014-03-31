@@ -24,7 +24,7 @@ public class Application
         player.setName("Ulric Fishke");
         System.out.println(player.equipableInventory.toString());
 
-        //Combat combat = new Combat(p, e);
+        BeginScreen begin = new BeginScreen();
 
 		Game theGame = new Game(player);
 
