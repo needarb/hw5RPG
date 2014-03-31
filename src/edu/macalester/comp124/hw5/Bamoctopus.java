@@ -7,7 +7,7 @@ public class Bamoctopus extends Enemy{
 
     public Bamoctopus(int speed, int health)
     {
-        super("bamoctopus", speed, health, 5, 5);
+        super("bamoctopus", speed, health, 7, 7);
         setName("Bamoctopus");
         defense = 10;
         imageFileName = "hw5RPG\\images\\monsters\\bamoctopus.png";

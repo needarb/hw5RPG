@@ -7,7 +7,7 @@ public class Bamizard extends Enemy{
 
     public Bamizard(int speed, int health)
     {
-        super("bamizard", speed, health, 5, 5);
+        super("bamizard", speed, health, 10, 10);
         setName("Bamizard");
         defense = 20;
         imageFileName = "hw5RPG\\images\\monsters\\bamizard.png";

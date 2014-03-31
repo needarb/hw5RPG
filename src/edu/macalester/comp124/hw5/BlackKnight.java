@@ -7,7 +7,7 @@ public class BlackKnight extends Enemy {
 
     public BlackKnight(int speed, int health)
     {
-        super("blackKnight", speed, health, 5, 5);
+        super("blackKnight", speed, health, 2, 1);
         setName("Black Knight");
         defense = 4;
         imageFileName = "hw5RPG\\images\\monsters\\blackKnight.png";

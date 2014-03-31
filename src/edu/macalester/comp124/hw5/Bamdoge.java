@@ -7,7 +7,7 @@ public class Bamdoge extends Enemy
 {
     public Bamdoge(int speed, int health)
     {
-        super("bamdoge",speed,health,4,3);
+        super("bamdoge",speed,health,3,4);
         setName("Bamdoge");
         defense = 7;
         imageFileName = "hw5RPG\\images\\monsters\\bamdoge.png";

@@ -7,7 +7,7 @@ public class Bamrat extends Enemy
 {
     public Bamrat(int speed, int health)
     {
-        super("bamrat",speed,health,3,3);
+        super("bamrat",speed,health,1,0);
         setName("Bamrat");
         defense = 2;
         imageFileName = "hw5RPG\\images\\monsters\\bamrat.png";
