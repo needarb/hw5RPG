@@ -21,6 +21,7 @@ W , items/waterStone.png
 F , items/fireStone.png
 
 # Terrain (grass, trees, castles, etc.)
+d , BackgroundTiles/dirt.png
 . , BackgroundTiles/grass.png
 l , BackgroundTiles/lava.png
 ^ , BackgroundTiles/mountain.png
