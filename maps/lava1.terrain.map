@@ -18,4 +18,4 @@ l l d l d d l l d d d l l
 l l d d l l l l d l l l l
 l l l d d d d d d l d l l
 l d l l l l l l l l l d l
-%
+%(12,3)>>forest>>(0,3) _ (12,4)>>forest>>(0,4) _ (3,0)>>lava2>>(3,19) _ (4,0)>>lava2>>(4,19)
