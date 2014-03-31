@@ -38,8 +38,9 @@ public abstract class Enemy extends Agent {
 
     public int[] moveEnemy()
     {
-        if(pathPointA == pathPointB)//enemy doesn't move at all
+        if(pathPointA[0] == pathPointB[0] && pathPointA[1] == pathPointB[1])//enemy doesn't move at all
             return new int[]{this.x,this.y};
+
         //switches the direction the enemy moves in if the enemy is at that location
         int[] temp = {this.x, this.y};
         if(temp == pathPointA || temp == pathPointB)
