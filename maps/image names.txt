@@ -15,7 +15,6 @@ bambat, monsters/bambat.png
 
 # Items
 g , items/gold.png
-b , items/blackKnight.png
 S , items/sword.png
 p , items/potion.png
 W , items/waterStone.png

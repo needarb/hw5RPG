@@ -1,13 +1,13 @@
 l l l d d l l l l l l l ^
-l d d d d l l d d d l l ^
+l d d d d l l d d d d l ^
 l d l l d l d d l l l l ^
 l d l l d d d l l l d d d
 l d l l d l l d d d d d d
 l d d d d l l d l d l l ^
-l d d l l l l d d d d d d
-l d d d d d l d l l l l d
-l l l l l d l d l l l l d
-l l d d d d l d l l d d d
+l d d l l l l d d d d d l
+l d d d d d l d l l l d l
+l l l l l d l d l l l d l
+l l d d d d l d l l d d l
 l l d d l l l d d l d l l
 l l l d d l l l d l d d ^
 l d d d d l l l d l d d ^
@@ -19,3 +19,4 @@ l l d d l l l l d l l l l
 l l l d d d d d d l d l l
 l d l l l l l l l l l d l
 %(12,3)>>forest>>(0,3) _ (12,4)>>forest>>(0,4) _ (3,0)>>lava2>>(3,19) _ (4,0)>>lava2>>(4,19)
+@doge:(6,18):[3,18]>>[8,18]_rat:(11,7):[11,4]>>[11,9]_knight:(5,8):[5,7]>>[5,9]_bat:(8,1):[7,1]>>[9,1]

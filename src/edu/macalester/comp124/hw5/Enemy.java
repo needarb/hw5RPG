@@ -77,14 +77,20 @@ public abstract class Enemy extends Agent {
         Random generator = new Random();
         Action action;
 
+
         do//makes sure the action is useable
         {
-        int length = combatActions.size();
-        int index = generator.nextInt(length);
-        action = combatActions.get(index);
+            int length = combatActions.size();
+            int index = generator.nextInt(length);
+            action = combatActions.get(index);
 
-        if (!action.useableAction())//removes the action if it's not useable
-            combatActions.remove(index);
+            if (!action.useableAction())//removes the action if it's not useable
+                combatActions.remove(index);
+
+            if(combatActions.size() == 0) //if enemy is out of moves
+            {
+                combatActions.add(new AttackAction(5,100,100,"Struggle"));
+            }
 
         }while(!action.useableAction());
 
