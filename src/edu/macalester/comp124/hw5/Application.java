@@ -22,10 +22,7 @@ public class Application
         player.x = 7;
         player.y = 16;
         player.setName("Ulric Fishke");
-
-        Potion p = new Potion("Health", 1, 10);
         System.out.println(player.equipableInventory.toString());
-        player.receiveItem(p);
 
         //Combat combat = new Combat(p, e);
 

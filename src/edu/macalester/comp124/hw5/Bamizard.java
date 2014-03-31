@@ -9,7 +9,7 @@ public class Bamizard extends Enemy{
     {
         super("bamizard", speed, health, 5, 5);
         setName("Bamizard");
-        defense = 10;
+        defense = 20;
         imageFileName = "hw5RPG\\images\\monsters\\bamizard.png";
         AttackAction attack1 = new AttackAction(15,5,75,"Flamethrower");
         AttackAction attack2 = new AttackAction(25,5,60,"Fire Blast");

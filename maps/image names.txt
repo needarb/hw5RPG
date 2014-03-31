@@ -22,6 +22,7 @@ S , items/sword.png
 p , items/potion.png
 I , items/icesword.png
 F , items/firesword.png
+N , items/potion.png
 
 # Terrain (grass, trees, castles, etc.)
 d , BackgroundTiles/dirt.png

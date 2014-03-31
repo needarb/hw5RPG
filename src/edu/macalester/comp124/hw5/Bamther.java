@@ -9,7 +9,7 @@ public class Bamther extends Enemy {
     {
         super("bamther", speed, health, 0, 0);
         setName("Bamther");
-        defense = 10;
+        defense = 30;
         imageFileName = "hw5RPG\\images\\monsters\\bamther.png";
 
         AttackAction attack1 = new AttackAction(25,5,75,"BAM-SLAP");
