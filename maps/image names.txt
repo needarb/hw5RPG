@@ -11,6 +11,7 @@ blackKnight , monsters/blackKnight.png
 bamrat , monsters/bamrat.png
 bamdoge , monsters/bamdoge.png
 bamizard, monsters/bamizard.png
+bambat, monsters/bambat.png
 
 # Items
 g , items/gold.png
