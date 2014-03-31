@@ -9,3 +9,4 @@ R , lower right shack
 L , lower left shack
 / , upper left shack
 \ ,  upper right shack
+l , lava
