@@ -71,10 +71,6 @@ public class MapLoader
     public static Enemy[] getEnemies(String fqn)
     {
         Enemy[] enemies = new Enemy[0];
-        HashMap<String, Enemy> enemyCode = new HashMap<>();
-        enemyCode.put("b", new BlackKnight(20,30));
-        enemyCode.put("d", new Bamdoge(10,30));
-        enemyCode.put("r", new Bamrat(20,10));
         //Map file
         List<String> lines = DataLoader.loadLinesFromFile(fqn);
         //line with enemy code
@@ -125,12 +121,18 @@ public class MapLoader
     {
         switch(c)
         {
-            case "b":
+            case "knight":
                 return (new BlackKnight(20,30));
-            case "d":
+            case "doge":
                 return (new Bamdoge(10,30));
-            case "r":
+            case "rat":
                 return (new Bamrat(25,10));
+            case "bat":
+                return (new Bambat(20,20));
+            case "char":
+                return (new Bamizard(20,50));
+            case "octo":
+                return (new Bamoctopus(20,40));
             default:
                 return null;
         }

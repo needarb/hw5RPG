@@ -1,6 +1,6 @@
+d d d d l d d d d d d d ^
 d d d d d d d d d d d d ^
-d d d d d d d d d d d d ^
-d d d d d d d d d d d d ^
+d d d d l d d d d d d d ^
 l l l l l l l l d d d l ^
 l l l l l l l l d l d l ^
 l l l d d d d d d d d d ^
@@ -19,3 +19,4 @@ l d l l l l l d l l l l ^
 l d d d d d d d l l l l ^
 l l l d d l l l l l l l ^
 %(3,19)>>lava1>>(3,0) _ (4,19)>>lava1>>(4,0)
+@char:(4,1):[4,1]>>[4,1]

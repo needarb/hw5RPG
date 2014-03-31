@@ -57,6 +57,9 @@ public class Game
             x = coordinates[0];
             y = coordinates[1];
 
+            if (e.x == x && e.y == y)
+                return;
+
             if(!map.isPassable(x,y))
             {
                 e.switchMovingForward();
