@@ -21,7 +21,7 @@ public class Game
 	//---	each turn what they want to do
 	public List<Agent> agents = new LinkedList<>();
     public MainForm mainForm;
-    public static final String[] MAP_NAMES = {"main","home","mountains","forest","lava1","lava2","water","waterboss"};
+    public static final String[] MAP_NAMES = {"main","home","mountains","forest","lava1","lava2","water","waterboss","bamther"};
     private HashMap<String,Map> maps;
 	public Game(Player player)
 	{

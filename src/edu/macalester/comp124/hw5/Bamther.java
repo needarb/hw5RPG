@@ -7,8 +7,8 @@ public class Bamther extends Enemy {
 
     public Bamther(int speed, int health)
     {
-        super("bamthers", speed, health, 0, 0);
-        setName("Bamthers");
+        super("bamther", speed, health, 0, 0);
+        setName("Bamther");
         defense = 10;
         imageFileName = "hw5RPG\\images\\monsters\\bamther.png";
 
