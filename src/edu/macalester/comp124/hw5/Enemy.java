@@ -23,6 +23,7 @@ public abstract class Enemy extends Agent {
         this.playerAttackBoost = playerAttackBoost;
         this.playerDefenseBoost = playerDefenseBoost;
         combatActions = new ArrayList<>();
+
     }
 
     public void setPath(int[] pointA, int[] pointB)//sets the path of the Enemy
@@ -99,7 +100,7 @@ public abstract class Enemy extends Agent {
             return (this.name + " attacked you with " + action.getName() + "!");
         }
 
-        return "uh-oh. There's and error in our code";
+        return "uh-oh. There's an error in our code";
     }
 
 }
