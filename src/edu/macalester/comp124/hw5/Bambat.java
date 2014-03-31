@@ -7,8 +7,8 @@ public class Bambat extends Enemy {
 
     public Bambat(int speed, int health)
     {
-        super("bamoctopus", speed, health, 5, 5);
-        setName("Bamoctopus");
+        super("bambat", speed, health, 5, 5);
+        setName("Bambat");
         defense = 10;
         imageFileName = "hw5RPG\\images\\monsters\\bambat.png";
         AttackAction attack1 = new AttackAction(3,5,80,"Tackle");
