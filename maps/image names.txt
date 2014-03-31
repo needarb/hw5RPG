@@ -20,8 +20,8 @@ bamther, monsters/bamther.png
 g , items/gold.png
 S , items/sword.png
 p , items/potion.png
-W , items/waterStone.png
-F , items/fireStone.png
+W , items/icesword.png
+F , items/firesword.png
 
 # Terrain (grass, trees, castles, etc.)
 d , BackgroundTiles/dirt.png
