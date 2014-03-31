@@ -70,6 +70,7 @@ public class Combat
             gui.clearFeedbackText();
             gui.setFeedbackText("You defeated the Evil Bam-Spirit! You have saved the Kingdom!");
             gui.setFeedbackText("The End");
+            gui.addEndGameButton();
         }
 
         else
