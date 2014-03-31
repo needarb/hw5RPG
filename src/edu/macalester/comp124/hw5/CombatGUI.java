@@ -24,6 +24,7 @@ public class CombatGUI
     private JButton switchWeaponButton;
     private JButton runButton;
     private JButton done;
+    private JButton endGame;
 
     private JLabel playerImage;
     private JLabel opponentImage;
@@ -181,6 +182,16 @@ public class CombatGUI
         buttonPanel.setVisible(true);
         done.addActionListener(this);
     }
+
+    public void addEndGameButton()
+    {
+        endGame = new JButton("End Game");
+        buttonPanel.setVisible(false);
+        buttonPanel.removeAll();
+        buttonPanel.add(endGame);
+        buttonPanel.setVisible(true);
+        endGame.addActionListener(this);
+    }
     public void addItemButtons()
     {
         buttonPanel.setVisible(false);
@@ -278,6 +289,11 @@ public class CombatGUI
         {
             combat.player.setInCombat(false);
             dispose();
+        }
+
+        if (e.getSource() == endGame)
+        {
+            System.exit(0);
         }
     }
 }
