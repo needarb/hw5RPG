@@ -6,8 +6,7 @@ package edu.macalester.comp124.hw5;
 public class Potion
     extends UseableItem
 {
-    public static final Potion HEALTH_POTION = new Potion("Health Potion",1,10);
-    public static final Potion POSION_POTION = new Potion("Super-Mega-Awesome Health Potion",10,-15);
+
     int potionPower;
 
     public Potion(String name, int uses, int power)

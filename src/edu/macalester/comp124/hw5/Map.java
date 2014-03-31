@@ -141,7 +141,7 @@ public class Map
         switch (itemString)
         {
             case("p"):          //New Potion
-                return Potion.HEALTH_POTION;
+                return new Potion("Health Potion",1,10);
             case("S"):
                 return Weapon.SWORD;
             case("I"):
@@ -149,7 +149,7 @@ public class Map
             case("F"):
                 return Weapon.FIRE_SWORD;
             case("N"):
-                return Potion.POSION_POTION;
+                return new Potion("Super-Mega-Awesome Health Potion",10,-15);
             default:
                 return null;
         }
