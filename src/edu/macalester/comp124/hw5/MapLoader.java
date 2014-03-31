@@ -130,9 +130,9 @@ public class MapLoader
             case "bat":
                 return (new Bambat(20,20));
             case "char":
-                return (new Bamizard(20,50));
+                return (new Bamizard(20,80));
             case "octo":
-                return (new Bamoctopus(20,40));
+                return (new Bamoctopus(20,65));
             default:
                 return null;
         }

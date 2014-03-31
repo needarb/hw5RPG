@@ -144,6 +144,10 @@ public class Map
                 return new Potion("health",1,15);
             case("S"):
                 return Weapon.SWORD;
+            case("I"):
+                return Weapon.ICE_SWORD;
+            case("F"):
+                return Weapon.FIRE_SWORD;
             default:
                 return null;
         }

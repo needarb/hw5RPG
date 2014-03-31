@@ -123,6 +123,8 @@ public class MainForm extends javax.swing.JFrame
 					resizeImages();
 					repaint();
 					return true;
+                case KeyEvent.VK_ENTER:
+                    new StatsGUI(game.player);
 			}
 		}
 		//--- This is stupid but it's needed to keep hot keys like the

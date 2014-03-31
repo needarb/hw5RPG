@@ -1,5 +1,6 @@
 package edu.macalester.comp124.hw5;
 
+import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 
 /**
@@ -14,11 +15,13 @@ public class Player extends Agent
     public AttackAction currentAttack;
     public Game theGame;
     private boolean inCombat;
+    private ArrayList<StatsGUI> statGUIS;
 
     public Player(int speed, int health)
     {
         super("player", speed, health);
         inCombat = false;
+        statGUIS = new ArrayList<>();
         imageFileName = "hw5RPG\\images\\actor.png";
         Weapon dagger = Weapon.DAGGER;
         this.receiveItem(dagger);
@@ -30,23 +33,37 @@ public class Player extends Agent
     public void setHealth(int health)
     {
         this.healthPoints = health;
+        updateGUIS();
     }
 
     public void setAttack(int attack)
     {
         this.attack = attack;
+        updateGUIS();
     }
 
     public void setDefense(int defense)
     {
         this.defense = defense;
+        updateGUIS();
     }
 
     public void setSpeed(int speed)
     {
         this.combatSpeed = speed;
+        updateGUIS();
     }
 
+    public void addStatsGUI(StatsGUI e)
+    {
+        statGUIS.add(e);
+    }
+
+    public void updateGUIS()
+    {
+        for(StatsGUI e:statGUIS)
+            e.updateStats();
+    }
     public void updateUseableInventory()
     {
         for(UseableItem item : useableInventory)

@@ -12,13 +12,15 @@ bamrat , monsters/bamrat.png
 bamdoge , monsters/bamdoge.png
 bamizard, monsters/bamizard.png
 bambat, monsters/bambat.png
+bamoctopus, monsters/bamoctopus.png
 
 # Items
 g , items/gold.png
 S , items/sword.png
 p , items/potion.png
-W , items/waterStone.png
-F , items/fireStone.png
+I , items/icesword.png
+F , items/firesword.png
+
 
 # Terrain (grass, trees, castles, etc.)
 d , BackgroundTiles/dirt.png

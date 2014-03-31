@@ -8,6 +8,8 @@ public class Weapon
 {
     public static final Weapon SWORD = new Weapon("sword","Sword",20);
     public static final Weapon DAGGER = new Weapon("dagger","Dagger",10);
+    public static final Weapon ICE_SWORD = new Weapon("icesword","Ice Sword",30);
+    public static final Weapon FIRE_SWORD = new Weapon("firesword","Fire Sword",45);
     int combatPower;
 
     public Weapon(String id, String name, int combatPower)
