@@ -15,7 +15,7 @@ bamizard, monsters/bamizard.png
 # Items
 g , items/gold.png
 b , items/blackKnight.png
-s , items/sword.png
+S , items/sword.png
 p , items/potion.png
 W , items/waterStone.png
 F , items/fireStone.png
