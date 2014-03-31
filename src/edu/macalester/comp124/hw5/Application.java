@@ -22,14 +22,10 @@ public class Application
         player.x = 7;
         player.y = 16;
         player.setName("Ulric Fishke");
-       
-        Potion a = new Potion("Potion",1,20);
-        Potion b = new Potion("Health", 1, 20);
-        Weapon w = new Weapon("Sword", "Sword", 20);
-        player.receiveItem(w);
+
+        Potion p = new Potion("Health", 1, 10);
         System.out.println(player.equipableInventory.toString());
-        player.receiveItem(a);
-        player.receiveItem(b);
+        player.receiveItem(p);
 
         //Combat combat = new Combat(p, e);
 

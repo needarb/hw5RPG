@@ -20,7 +20,7 @@ public class Player extends Agent
         super("player", speed, health);
         inCombat = false;
         imageFileName = "hw5RPG\\images\\actor.png";
-        Weapon dagger = new Weapon("dagger", "Dagger", 10);
+        Weapon dagger = Weapon.DAGGER;
         this.receiveItem(dagger);
         setEquippedWeapon(dagger);
     }
