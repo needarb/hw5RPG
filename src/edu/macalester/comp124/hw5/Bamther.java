@@ -5,11 +5,13 @@ package edu.macalester.comp124.hw5;
  */
 public class Bamther extends Enemy {
 
+
     public Bamther(int speed, int health)
     {
         super("bamther", speed, health, 9001, 9001);
         setName("Bamther");
         defense = 30;
+
         imageFileName = "hw5RPG\\images\\monsters\\bamther.png";
 
         AttackAction attack1 = new AttackAction(25,5,75,"BAM-SLAP");
