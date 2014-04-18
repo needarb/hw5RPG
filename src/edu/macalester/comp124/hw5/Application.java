@@ -1,11 +1,5 @@
 package edu.macalester.comp124.hw5;
 
-import acm.io.IOConsole;
-
-import javax.swing.*;
-import java.awt.*;
-import java.io.Console;
-
 /**
  *
  * @author baylor
